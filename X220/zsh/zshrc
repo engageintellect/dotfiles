@@ -6,7 +6,8 @@
 #                              |___/
 # ThinkPad X220
 # Version 1.0
-
+#
+#
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -25,7 +26,6 @@ export ZSH="/home/r3dux/.oh-my-zsh"
 ZSH_THEME="nanotech"
 #ZSH_THEME="wedisagree"
 #ZSH_THEME="jbergantine"
-#ZSH_THEME="emotty"
 #ZSH_THEME="powerlevel10k/powerlevel10k"
 #ZSH_THEME="gnzh"
 #ZSH_THEME="kardan"
@@ -92,6 +92,8 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
          fzf
+         zsh-autosuggestions
+         zsh-syntax-highlighting
 
 )
 
@@ -170,7 +172,7 @@ alias autoclean='sudo pacman -Qdt'
 # ssh
 alias MBP='ssh 192.168.1.25'
 alias SB2='ssh 192.168.1.29'
-alias x220='ssh 192.168.1.11'
+alias x220='ssh 192.168.1.21'
 alias mom='ssh janakind-chadwick@192.168.1.24'
 
 #pfetch
@@ -184,5 +186,8 @@ alias linuxtool='python3 /home/r3dux/Code/python/linuxtool.py'
 # ADD TO PATH
 export PATH="/home/r3dux/.cargo/bin:$PATH"
 export PATH="/home/r3dux/Scripts:$PATH"
+
+# vi mode
+bindkey -v
 
 
