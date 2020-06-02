@@ -8,7 +8,7 @@
 # Version 2.0
 
 # MOD KEY
-set $mod Mod1
+set $mod Mod4
 
 # FONT
 font pango: Ubuntu Regular, FontAwesome 9
@@ -18,11 +18,12 @@ floating_modifier $mod
 
 # TERMINALS
 bindsym $mod+Return exec --no-startup-id st
-bindsym $mod+a exec --no-startup-id cool-retro-term -pl Neo
+#bindsym $mod+a exec --no-startup-id cool-retro-term -pl Neo
+bindsym $mod+a exec --no-startup-id alacritty
 
 # LAUNCHERS
-bindsym $mod+Shift+d exec --no-startup-id rofi -show run -lines 3 -eh 2 -width 250 -padding 20 -opacity "20" -font "mononoki Nerd Font 11"
-bindsym $mod+d exec --no-startup-id dmenu_run -fn 'mononoki Nerd Font -11' -nb '#0e0e0e' -sf '#0e0e0e' -sb '#ffffff' -nf '#ffffff' -p 'Run: '
+bindsym $mod+Shift+d exec --no-startup-id rofi -show run -lines 3 -eh 2 -width 300 -padding 20 -opacity "20" -font "mononoki Nerd Font 12"
+bindsym $mod+d exec --no-startup-id dmenu_run -fn 'mononoki Nerd Font -12' -nb '#000000' -sf '#000000' -sb '#ffffff' -nf '#ffffff' -p 'Run: ' -b
 bindsym $mod+o exec --no-startup-id i3-dmenu-desktop
 
 # NAVIGATE
@@ -102,10 +103,10 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Escape exec i3-msg exit
 
 # RESIZE
-bindsym $mod+ctrl+l resize shrink width 5 px or 5 ppt
-bindsym $mod+ctrl+k resize grow height 5 px or 5 ppt
-bindsym $mod+ctrl+j resize shrink height 5 px or 5 ppt
-bindsym $mod+ctrl+h resize grow width 5 px or 5 ppt
+bindsym $mod+ctrl+l resize shrink width 2 px or 2 ppt
+bindsym $mod+ctrl+k resize grow height 2 px or 2 ppt
+bindsym $mod+ctrl+j resize shrink height 2 px or 2 ppt
+bindsym $mod+ctrl+h resize grow width 2 px or 2 ppt
 
 # BAR COLORS
 set $bg-color            #000000
@@ -213,13 +214,14 @@ exec_always --no-startup-id nitrogen --restore
 exec --no-startup-id compton
 #exec --no-startup-id /home/r3dux/.config/polybar/launch.sh
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/bin/keyswap
 
 # SCRATCHPAD
 exec --no-startup-id st -t scratch
 bindsym $mod+Shift+Return exec --no-startup-id i3-msg scratchpad show
 for_window [title="scratch"] move scratchpad
 for_window [title="scratch"] floating enable
-for_window [title="scratch"] border pixel 5
+for_window [title="scratch"] border pixel 0
 
 # CUSTOM KEYBINDINGS
 #bindsym $mod+Shift+e exec --no-startup-id /usr/local/bin/slock
@@ -232,7 +234,7 @@ bindsym $mod+m exec --no-startup-id spotify; workspace $ws5
 bindsym $mod+v exec --no-startup-id virtualbox; workspace $ws8
 bindsym $mod+e exec --no-startup-id pcmanfm; workspace $ws7
 bindsym $mod+r exec --no-startup-id alacritty -e ranger; floating enable
-bindsym $mod+s exec --no-startup-id surf duckduckgo.com                         
+bindsym $mod+s exec --no-startup-id surf -z .90 duckduckgo.com                         
 bindsym $mod+f exec --no-startup-id firefox
 bindsym $mod+n exec --no-startup-id nitrogen                        
 bindsym $mod+p exec --no-startup-id scrot
@@ -242,27 +244,32 @@ bindsym $mod+Shift+v exec --no-startup-id st -e nvim
 bindsym $mod+Shift+w exec --no-startup-id st -e weechat
 bindsym $mod+Shift+f exec --no-startup-id st -e ranger
 bindsym $mod+Shift+a exec --no-startup-id st -t mixer -e pulsemixer
-bindsym $mod+Shift+b exec --no-startup-id ~/Scripts/wally.py
+bindsym $mod+Shift+b exec --no-startup-id ~/bin/wally.py
 
 # FLOATING WINDOW SETTINGS
+for_window [class="Xz"] floating enable
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [title="File Transfer*"] floating enable
-for_window [class="GParted"] floating enable border normal
-for_window [class="Lightdm-settings"] floating enable
+for_window [class="Lightdm-settings"] floating enable resize set 600 500
+for_window [class="Lightdm-settings"] move position center
 for_window [class="Lxappearance"] floating enable sticky enable border no$
-for_window [class="Nitrogen"] floating enable resize set 600 400
+for_window [class="Nitrogen"] floating enable resize set 600 500
 for_window [class="Nitrogen"] move position center
 for_window [class="Pavucontrol"] floating enable
+for_window [class="Pavucontrol"] move position center
 for_window [class="qpaeq"] floating enable resize set 200 100
 for_window [class="qpaeq"] move position center
 for_window [class="Pamac-manager"] floating enable resize set 400 400
 for_window [class="Pcmanfm"] floating enable resize set 600 400
 for_window [class="Pcmanfm"] move position center
-for_window [class="Xz"] floating enable
-for_window [title="mixer"] floating enable resize set 500 300 
+for_window [title="mixer"] floating enable resize set 500 300
 for_window [title="mixer"] move position center
-for_window [class="Sxiv"] floating enable resize set 700 600
+for_window [class="Sxiv"] floating enable resize set 900 600
 for_window [class="Sxiv"] move position center
+for_window [class="Kvantum Manager"] floating enable resize set 600 500
+for_window [class="Kvantum Manager"] move position center
+for_window [class="qt5ct"] floating enable resize set 600 500
+for_window [class="qt5ct"] move position center
 
 # FIBONACCI LAYOUT
 #exec --no-startup-id /home/r3dux/Scripts/fibonacci.py
