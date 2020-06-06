@@ -1,0 +1,40 @@
+#                 _   _
+# _ __ ___  _   _| |_| |_ _ __ ___
+#| '_ ` _ \| | | | __| __| '__/ __|
+#| | | | | | |_| | |_| |_| | | (__
+#|_| |_| |_|\__,_|\__|\__|_|  \___|
+#
+#
+
+
+set from = "jc9361@gmail.com"
+set realname = "Josh"
+set imap_user = "jc9361@gmail.com"
+set imap_pass = "PASSWORD"
+
+##REMOTE GMAIL FOLDERS
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed ="+[Google Mail]/Drafts"
+set trash = "+[Google Mail]/Trash"
+
+##SMTP Settings to sent email
+set smtp_url = "smtp://jc9361@smtp.gmail.com:587/"
+set smtp_pass = "PASSWORD"
+
+##LOCAL FOLDERS FOR CACHED HEADERS AND CERTIFICATES
+set header_cache =~/.config/mutt/cache/headers
+set message_cachedir =~/.config/mutt/cache/bodies
+set certificate_file =~/.config/mutt/certificates
+set record = ~/.config/mutt/sent/sent
+
+##SECURING
+set move = no  #Stop asking to "move read messages to mbox"!
+set imap_keepalive = 900
+
+##Sort by newest conversation first.
+set sort = reverse-threads
+set sort_aux = last-date-received
+
+##Set editor to create new email
+set editor='nvim'
