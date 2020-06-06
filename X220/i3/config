@@ -65,13 +65,12 @@ set $ws2 "2: www"
 set $ws3 "3: code"
 set $ws4 "4: chat"
 #set $ws5 "5: media"
-#set $ws5 "5: media"
 set $ws5 "5: media"
 set $ws6 "6: sys"
 set $ws7 "7: files"
 set $ws8 "8: vbox"
-set $ws9 "9: git"
-set $ws10 "10: mail"
+set $ws9 "9: github"
+set $ws10 "10: email"
 
 # WORKSPACE SWITCHING
 bindsym $mod+1 workspace $ws1
@@ -205,23 +204,19 @@ exec --no-startup-id xinput set-prop TPPS/2\ IBM\ TrackPoint libinput\ Natural\ 
 exec --no-startup-id xinput set-prop TPPS/2\ IBM\ TrackPoint libinput\ Accel\ Speed 0.000005
 
 # AUTOSTART PROGRAMS
-#exec --no-startup-id xset r rate 300 50
 #exec --no-startup-id xrandr --dpi 200
 #exec --no-startup-id feh --bg-fill ~/Pictures/twisted.jpg
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id xautolock -time 10 -locker blurlock
-exec_always --no-startup-id nitrogen --restore
-exec --no-startup-id compton
-#exec --no-startup-id /home/r3dux/.config/polybar/launch.sh
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id $HOME/bin/keyswap
+exec --no-startup-id $HOME/bin/autolaunch.sh
 
 # SCRATCHPAD
 exec --no-startup-id st -t scratch
 bindsym $mod+Shift+Return exec --no-startup-id i3-msg scratchpad show
-for_window [title="scratch"] move scratchpad
-for_window [title="scratch"] floating enable
 for_window [title="scratch"] border pixel 0
+for_window [title="scratch"] floating enable
+for_window [title="scratch"] resize set 800 600
+for_window [title="scratch"] move position center
+for_window [title="scratch"] move scratchpad
+for_window [title="scratch"] move down
 
 # CUSTOM KEYBINDINGS
 #bindsym $mod+Shift+e exec --no-startup-id /usr/local/bin/slock
@@ -233,16 +228,12 @@ bindsym $mod+t exec --no-startup-id torbrowser-launcher; workspace $ws2
 bindsym $mod+m exec --no-startup-id spotify; workspace $ws5
 bindsym $mod+v exec --no-startup-id virtualbox; workspace $ws8
 bindsym $mod+e exec --no-startup-id pcmanfm; workspace $ws7
-bindsym $mod+r exec --no-startup-id alacritty -e ranger; floating enable
-bindsym $mod+s exec --no-startup-id surf -z .90 duckduckgo.com                         
+bindsym $mod+s exec --no-startup-id surf -z 1.0 duckduckgo.com
 bindsym $mod+f exec --no-startup-id firefox
 bindsym $mod+n exec --no-startup-id nitrogen                        
 bindsym $mod+p exec --no-startup-id scrot
 bindsym $mod+Shift+e exec --no-startup-id blurlock                  
 bindsym $mod+Shift+y exec --no-startup-id st -e ytop
-bindsym $mod+Shift+v exec --no-startup-id st -e nvim
-bindsym $mod+Shift+w exec --no-startup-id st -e weechat
-bindsym $mod+Shift+f exec --no-startup-id st -e ranger
 bindsym $mod+Shift+a exec --no-startup-id st -t mixer -e pulsemixer
 bindsym $mod+Shift+b exec --no-startup-id ~/bin/wally.py
 
@@ -272,7 +263,7 @@ for_window [class="qt5ct"] floating enable resize set 600 500
 for_window [class="qt5ct"] move position center
 
 # FIBONACCI LAYOUT
-#exec --no-startup-id /home/r3dux/Scripts/fibonacci.py
+#exec --no-startup-id /home/r3dux/scripts/i3/fibonacci.py
 
 # i3 config syntax highlighting for vim/nvim
 # vim:filetype=i3config
