@@ -5,31 +5,28 @@
 # |_|____/   \___\___/|_| |_|_| |_|\__, |
 ###################################|___/ 
 # Surface Book 2
+# Version 2.0
 
 # MOD KEY
-set $mod Mod1
+set $mod Mod4
 
 # FONT
-font pango: Ubuntu mono 12, FontAwesome 12
-#font pango:DejaVu Sans Mono 8
+font pango: Ubuntu Regular 28, FontAwesome 12
 
-# DRAG FLOATING WINDOWS
+# MOUSE CONTROL
 floating_modifier $mod
 
-# OPENN A TERMINAL
+# TERMINALS
 bindsym $mod+Return exec --no-startup-id st
 bindsym $mod+t exec --no-startup-id cool-retro-term -pl NEO
-#bindsym $mod+t exec --no-startup-id alacritty
+bindsym $mod+a exec --no-startup-id alacritty
 
-# KILL FOCUSED WINDOW
-bindsym $mod+q kill
-
-# OPEN LAUNCHER
+# LAUNCHERS
 bindsym $mod+d exec --no-startup-id rofi -show run -lines 3 -eh 2 -width 600 -padding 40 -opacity "60" -font "Ubuntu Regular 24"
 bindsym $mod+Shift+d exec --no-startup-id dmenu_run -fn 'Ubuntu Regular -14' -nb '#000000' -sf '#000000' -sb '#ffffff' -nf '#ffffff' -p 'Run: '
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# NAVIGATE WINDOWS
+# NAVIGATE 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -48,10 +45,10 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-
-# WINDOW LAYOUT
-# bindsym $mod+a focus parent
-# bindsym $mod+d focus child
+# WINDOW CONTROL
+bindsym $mod+q kill
+bindsym $mod+Shift+p focus parent
+bindsym $mod+Shift+c focus child
 bindsym $mod+z split h
 bindsym $mod+x split v
 bindsym $mod+Tab fullscreen toggle
@@ -116,43 +113,6 @@ client.unfocused        $iancative-bg-color $inactive-bg-color $inactive-text-co
 client.focused_inactive $iancative-bg-color $inactive-bg-color $inactive-text-color #f3f4f5
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #f3f4f5
 
-# i3 BAR
-bar {
-
-# RUN BAR FROM
-status_command i3status -c ~/.config/i3status_config
-#i3blocks -c ~/i3blocks.conf
-
-# BAR FONT
-#font xft:URWGothic-Book 11
-font pango: Ubuntu Regular 12
-
-# BAR SETTINGS
-position top
-strip_workspace_numbers true
-workspace_buttons true
-# output eDP1 --primary'
-# tray_output primary
-# tray_output eDP1
-# bindsym button4 nop
-# bindsym button5 nop
-
-# BAR COLORS
-colors {
-        background #000000
-        statusline #ffffff
-        separator  #0e0e0e
-
-#                          BORDER    BG    TEXT
-        focused_workspace  #ffffff #ffffff #0E0E0E
-        active_workspace   #0e0e0e #282828 #F9FAF9
-        inactive_workspace #0e0e0e #0E0E0E #F9FAF9
-        binding_mode       #ACACAC #0E0E0E #F9FAF9
-        urgent_workspace   #FDF6E3 #FDF6E3 #E5201D
-}
-
-}
-
 # THEME COLORS
 # CLASS                   BORDER  BG      TEXT    INDIC   CHILD-BORDER
   client.focused          #ffffff #ffffff #000000 #FDF6E3
@@ -209,13 +169,18 @@ mode "$mode_gaps_outer" {
 #bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2% #increase sound volume
 #bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2% #decrease sound volume
 #bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 2%-
+
+#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2%+
+#bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 2%-
+bindsym F8 exec --no-startup-id amixer set Master 2%+
+bindsym F7 exec --no-startup-id amixer set Master 2%-
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 
 # DISPLAY BRIGHTNESS
-bindsym XF86MonBrightnessUp exec --no-startup-id sudo brightnessctl set 5%+
-bindsym XF86MonBrightnessDown exec --no-startup-id sudo brightnessctl set 5%-
+#bindsym XF86MonBrightnessUp exec --no-startup-id sudo brightnessctl set 5%+
+#bindsym XF86MonBrightnessDown exec --no-startup-id sudo brightnessctl set 5%-
+bindsym F6 exec --no-startup-id sudo brightnessctl set 5%+
+bindsym F5 exec --no-startup-id sudo brightnessctl set 5%-
 
 # TOUCHPAD 
 exec --no-startup-id xinput set-prop Microsoft\ Surface\ Keyboard\ Touchpad libinput\ Tapping\ Enabled 1
@@ -245,65 +210,70 @@ for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable 
 for_window [window_type="menu"] floating enable   
 for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="calamares"] floating enable border normal
-for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [class="GParted"] floating enable border normal
-for_window [title="i3_help"] floating enable sticky enable border normal
-for_window [class="Lightdm-settings"] floating enable
+for_window [class="Xz"] floating enable
+for_window [title="File Transfer*"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border no$
-for_window [class="Nitrogen"] floating enable border normal
+for_window [class="Lightdm-settings"] floating enable resize set 600 500
+for_window [class="Lightdm-settings"] move position center
+for_window [class="Nitrogen"] floating enable resize set 600 500
+for_window [class="Nitrogen"] move position center
 for_window [class="Pavucontrol"] floating enable
-for_window [class="Nautilus"] floating enable
-for_window [class="qpaeq"] floating enable
+for_window [class="Pavucontrol"] move position center
+for_window [class="qpaeq"] floating enable resize set 300 300
+for_window [class="qpaeq"] move position center
+for_window [class="Pamac-manager"] floating enable resize set 800 600
+for_window [class="Pcmanfm"] floating enable resize set 900 900
+for_window [class="Pcmanfm"] move position center
+for_window [title="mixer"] floating enable resize set 1200 600
+for_window [title="mixer"] move position center
+for_window [class="Sxiv"] floating enable resize set 2500 1500
+for_window [class="Sxiv"] move position center
+for_window [class="Kvantum Manager"] floating enable resize set 600 500
+for_window [class="Kvantum Manager"] move position center
+for_window [class="qt5ct"] floating enable resize set 600 500
+for_window [class="qt5ct"] move position center
 
 # STARTUP PROGRAMS
 #exec --no-startup-id xrandr --dpi 200
-#exec --no-startup-id nm-applet
-#exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-#exec --no-startup-id feh --bg-fill ~/Pictures/WALLPAPER/surface_smoke.jpg
-exec_always --no-startup-id nitrogen --restore
-exec --no-startup-id /usr/bin/xfce4-power-manager
-exec --no-startup-id xautolock -time 5 -locker i3lock-fancy
-exec --no-startup-id compton
-exec_always --no-startup-id /home/r3dux/.config/polybar/launch.sh
+#exec --no-startup-id xautolock -time 5 -locker i3lock-fancy
+#exec_always --no-startup-id nitrogen --restore
+#exec --no-startup-id /usr/bin/xfce4-power-manager
+#exec --no-startup-id xautolock -time 5 -locker i3lock-fancy
+#exec --no-startup-id picom
+#exec_always --no-startup-id /home/r3dux/.config/polybar/launch.sh
+#exec_always --no-startup-id /home/r3dux/bin/keyswap
+#exec_always --no-startup-id xset r rate 200 100
+exec_always --no-startup-id ~/bin/autolaunch.sh
 
 # SCRATCHPAD
 exec --no-startup-id st -t scratch
 bindsym $mod+Shift+Return exec --no-startup-id i3-msg scratchpad show
-for_window [title="scratch"] move scratchpad
 for_window [title="scratch"] floating enable
-for_window [title="scratch"] border pixel 3
+for_window [title="scratch"] resize set 2000 1200
+for_window [title="scratch"] move position center
+for_window [title="scratch"] move down
+for_window [title="scratch"] move scratchpad
+for_window [title="scratch"] border pixel 0
 
 # KEY BINDINGS
 bindsym $mod+Shift+e exec --no-startup-id i3lock-fancy
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+x reload
 bindsym $mod+Shift+r restart
 #bindsym $mod+Shift+q exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+q exec --no-startup-id i3-msg exit
-bindsym $mod+b exec --no-startup-id sudo ~/Scripts/Bluetooth_Reset.sh
+bindsym $mod+b exec --no-startup-id sudo ~/scripts/Bluetooth_Reset.sh
 bindsym $mod+e exec --no-startup-id pcmanfm
-bindsym $mod+c exec --no-startup-id code
 bindsym $mod+s exec --no-startup-id surf -z 1.75 duckduckgo.com
-bindsym $mod+a exec --no-startup-id atom
 bindsym $mod+i exec --no-startup-id qutebrowser
-#bindsym $mod+Tab bar mode toggle
 bindsym $mod+p exec --no-startup-id scrot
 bindsym $mod+m exec --no-startup-id spotify
 bindsym $mod+g exec --no-startup-id surf -z 2 gmail.com
 bindsym $mod+y exec --no-startup-id qutebrowser youtube.com
 bindsym $mod+n exec --no-startup-id nitrogen
-bindsym $mod+Shift+b exec --no-startup-id ~/Scripts/wally.py
-
-# STARTUP PROGRAMS
-#exec --no-startup-id nm-applet
-#exec --no-startup-id sudo ~/Scripts/Bluetooth_Reset.sh
-#exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-#exec --no-startup-id feh --bg-fill ~/Pictures/WALLPAPER/surface_smoke.jpg
-exec_always --no-startup-id nitrogen --restore
-exec --no-startup-id /usr/bin/xfce4-power-manager
-exec --no-startup-id xautolock -time 5 -locker i3lock-fancy
-exec --no-startup-id compton
+bindsym $mod+Shift+b exec --no-startup-id ~/scripts/wally.py
+bindsym $mod+Shift+a exec --no-startup-id st -t mixer -e pulsemixer
 
 ### VIM SYNTAX ###
 # vim:filetype=i3config
