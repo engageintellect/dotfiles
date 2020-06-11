@@ -6,6 +6,9 @@
 #|_.__/|___/ .__/ \_/\_/ |_| |_| |_| |_|  \___|
 #          |_|
 #
+# Build: ThinkPad X220
+# Version: 1.0
+
 
 # AUTOSTART
 killall -q sxhkd
@@ -13,17 +16,20 @@ sxhkd &
 /home/r3dux/bin/autolaunch.sh &
 /home/r3dux/bin/padding.sh &
 
+
 # COLORS
 unfocused=#000000
 focused=#ffffff
 #select=#DD3CFF
 select=#ffffff
 
+
 # WORKSPACES
 #bspc monitor -d ' dev'  ' www' ' code' ' chat' ' media' ' sys' ' files' ' vbox' ' github' ' email'
 #bspc monitor -d '1'  '2' '3' '4' '5' '6' '7' '8' '9' '10'
 #bspc monitor -d 'I'  'II' 'III' 'IV' 'V' 'VI' 'VII' 'VIII' 'IX' 'X'
 bspc monitor -d ' '  ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '
+
 
 # WINDOW SETTINGS
 bspc config normal_border_color         $unfocused
@@ -33,17 +39,21 @@ bspc config presel_feedback_color       $select
 #center_pseudo_tiled                     true
 bspc config border_width                2
 bspc config window_gap                  0
-bspc config split_ratio                 0.52
-bspc config borderless_monocle          true
-bspc config gapless_monocle             true
 bspc config focus_follows_pointer       true
 bspc config pointer_follows_focus       true
 
+
+# LAYOUT SETTINGS
+bspc config split_ratio                 0.52
+bspc config borderless_monocle          true
+bspc config gapless_monocle             true
 bspc config automatic_scheme longest_side
 bspc config initial_polarity second_child
 
+
 # SCRATCHPAD
 bspc rule -a st-256color:scratchy state=floating sticky=on rectangle=1000x600+0+0 center=true border_width=0
+
 
 # WINDOW RULES
 bspc rule -a Gimp desktop='^8' state=floating follow=on
