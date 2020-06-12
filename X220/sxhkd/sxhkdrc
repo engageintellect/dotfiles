@@ -7,9 +7,11 @@
 # Build: ThinkPad X220
 # Version: 1.0
 
+####################################################################################
 #
 # CUSTOM BINDINGS
 #
+####################################################################################
 
 # TERMINAL
 super + Return
@@ -24,8 +26,12 @@ super + d
 	dmenu_run -fn 'mononoki Nerd Font -12' -nb '#000000' -sf '#000000' -sb '#ffffff' -nf '#ffffff' -p 'Run: ' -b
 
 # REDLOAD SXHKD CONFIG 
-super + Escape
+super + shift + r
 	pkill -USR1 -x sxhkd
+
+# SCREEN LOCK
+super + shift + e
+    blurlock 
 
 # WALLY
 super + shift + b
@@ -36,6 +42,12 @@ super + s
     surf -z 1.0 duckduckgo.com
 super + i
     qutebrowser
+super + f
+    firefox
+
+# YOUTUBE
+super + y
+    qutebrowser youtube.com
 
 # PULSEMIXER
 super + shift + a
@@ -45,20 +57,24 @@ super + shift + a
 super + shift + y
     st -n ytop -e ytop
 
+# SPOTIFY
+super + m
+    spotify
+
 # RELOAD BSPWM
 super + ctrl + r
     bspc wm -r; sleep 2; bspc config top_padding 30
 
 # QUIT BSPWM
 super + ctrl + q
-    bspc quit
+    killall -q bspwm
 
 # CLOSE AND KILL
 super + {_,shift + }q
 	bspc node -{c,k}
 
 # TOGGLE MONOCLE LAYOUT
-super + m
+super + shift + m
 	bspc desktop -l next
 
 # TOGGLE FULLSCREEN
@@ -85,19 +101,21 @@ super + shift + f
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
-# send the newest marked node to the newest preselected node
-super + y
+# SEND NEW NODE TO NEWEST PRESELECT
+super + shift + y
 	bspc node newes.marked.local -n newest.!automatic.local
 
-# swap the current node and the biggest node
+# SWAP CURRENT WITH BIGGEST
 super + g
 	bspc node -s biggest
 
+####################################################################################
 #
 # FOCUS / SWAP
 #
+####################################################################################
 
-# focus the node in the given direction
+# MOVE WINDOWS
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
@@ -123,13 +141,15 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# focus or send to the given desktop
+# MOVE WORKSPACES
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
+####################################################################################
 #
 # PRESELECT
 #
+####################################################################################
 
 # preselect the direction
 super + alt + {h,j,k,l}
@@ -147,9 +167,11 @@ super + alt + space
 super + alt + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
+####################################################################################
 #
 # MOVE / RESIZE
 #
+####################################################################################
 
 # expand a window by moving one of its side outward
 super + ctrl + {h,j,k,l}
@@ -162,3 +184,10 @@ super + ctrl + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}t
+
+
+####################################################################################
+#
+# MORE BINDINGS
+#
+####################################################################################
