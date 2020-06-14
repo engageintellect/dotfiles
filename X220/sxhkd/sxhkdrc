@@ -7,6 +7,7 @@
 # Build: ThinkPad X220
 # Version: 1.0
 
+
 ####################################################################################
 #
 # CUSTOM BINDINGS
@@ -16,6 +17,8 @@
 # TERMINAL
 super + Return
 	st
+super + a
+    alacritty
 
 # SCRATCHPAD
 super + shift + Return
@@ -35,19 +38,25 @@ super + shift + e
 
 # WALLY
 super + shift + b
-    ~/bin/wally.py; sleep 2; bspc config top_padding 30
+    ~/bin/wally.py
 
 # BROWSERS
 super + s 
     surf -z 1.0 duckduckgo.com
 super + i
-    qutebrowser
+    bspc desktop -f '^2' && qutebrowser
 super + f
     firefox
 
 # YOUTUBE
 super + y
-    qutebrowser youtube.com
+    bspc desktop -f '^5' && qutebrowser youtube.com
+
+# EMAIL
+super + g
+    bspc desktop -f '^10' && st -e mutt
+super + shift + g
+    bspc desktop -f '^10' && surf gmail.com
 
 # PULSEMIXER
 super + shift + a
@@ -59,11 +68,27 @@ super + shift + y
 
 # SPOTIFY
 super + m
-    spotify
+    bspc desktop -f '^5' && spotify
+
+# PCMANFM
+super + e
+    pcmanfm
+
+# NITROGEN
+super + n
+    nitrogen
+
+# SCREENSHOT
+Print
+    scrot
+
+# LOCK
+Scroll_Lock
+    blurlock
 
 # RELOAD BSPWM
 super + ctrl + r
-    bspc wm -r; sleep 2; bspc config top_padding 30
+    bspc wm -r
 
 # QUIT BSPWM
 super + ctrl + q
@@ -90,7 +115,7 @@ super + shift + space
     bspc node -t \~tiled
 
 # TOGGLE PSEDUO TILE
-super + shift + f
+alt + space
     bspc node -t \~pseudo_tiled
 
 # LAYOUT SWITCH
@@ -106,7 +131,7 @@ super + shift + y
 	bspc node newes.marked.local -n newest.!automatic.local
 
 # SWAP CURRENT WITH BIGGEST
-super + g
+super + shift + s
 	bspc node -s biggest
 
 ####################################################################################
@@ -119,24 +144,24 @@ super + g
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-# focus the node for the given path jump
+# FOCUS NODE FOR GIVEN PATH JUMP
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
-# focus the next/previous node in the current desktop
+# FOCUS NEXT/PREVIOUS NODE IN CURRENT DESKTOP
 super + {_,shift + }c
 	bspc node -f {next,prev}.local
 
-# focus the next/previous desktop in the current monitor
+# FOCUS NEXT/PREVIOUS DESKTOP IN CURRENT MONITOR
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
-# focus the last node/desktop
+# FOCUS THE LAST NODE/DESKTOP
 super + {grave,Tab}
 	bspc {node,desktop} -f last
 
-# focus the older or newer node in the focus history
-super + {o,i}
+# FOCUS OLDER OR NEWER NODE IN THE FOCUS HISTORY
+super + ctrl + {o,i}
 	bspc wm -h off; \
 	bspc node {older,newer} -f; \
 	bspc wm -h on
@@ -151,19 +176,19 @@ super + {_,shift + }{1-9,0}
 #
 ####################################################################################
 
-# preselect the direction
-super + alt + {h,j,k,l}
+# PRESELECT DIRECTION
+super + alt {h,j,k,l}
 	bspc node -p {west,south,north,east}
 
-# preselect the ratio
-super + alt + {1-9}
+# PRESELECT AMOUNT 
+super + alt {1-9}
 	bspc node -o 0.{1-9}
 
-# cancel the preselection for the focused node
+# CANCEL PRESELECTION FOR NODE 
 super + alt + space
 	bspc node -p cancel
 
-# cancel the preselection for the focused desktop
+# CANCEL PRESLECTION FOR DESKTOP 
 super + alt + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
@@ -173,21 +198,52 @@ super + alt + shift + space
 #
 ####################################################################################
 
-# expand a window by moving one of its side outward
+# EXPAND WINDOW OUTWARD 
 super + ctrl + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
-# contract a window by moving one of its side inward
+# CONTRACT WINDOW INWARD 
 super + ctrl + shift + {h,j,k,l}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
-# move a floating window
+# MOVE FLOATING WINDOW
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}t
 
+# CHANGE WINDOW GAP SIZE
+alt + k
+	bspc config window_gap {0,12,16,32,46,64,84}
+alt + j
+	bspc config window_gap {0,2,4,6,8,10,12,14,16,18,20}
+
+# EXPAND/CONTRACT FLOATING WINDOWS ON ALL SIDES
+alt + h
+	bspc node -z left -20 0; \
+	bspc node -z bottom 0 10; \
+	bspc node -z top 0 -10; \
+	bspc node -z right 20 0
+alt + l
+	bspc node -z left 20 0; \
+	bspc node -z bottom 0 -10; \
+	bspc node -z top 0 10; \
+	bspc node -z right -20 0
 
 ####################################################################################
 #
-# MORE BINDINGS
+# HARDWARE CONTROLS
 #
 ####################################################################################
+
+# KEYBOARD VOLUME CONTROL
+
+XF86AudioRaiseVolume
+    pactl set-sink-volume 0 +2%
+ 
+XF86AudioLowerVolume
+    pactl set-sink-volume 0 -2%
+
+XF86AudioMute
+    pactl set-sink-mute 1 toggle
+
+
+

@@ -8,7 +8,7 @@
 
 [global]
     frame_width = 1
-    frame_color = "#ffffff"
+    frame_color = "#00000000"
     
     font = Ubuntu Regular 10
     
@@ -38,7 +38,7 @@
     sort = yes
     
     # Show how many messages are currently hidden (because of geometry).
-    indicate_hidden = yes
+    indicate_hidden = no
     
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -54,7 +54,7 @@
     # Show age of message if message is older than show_age_threshold
     # seconds.
     # Set to -1 to disable.
-    show_age_threshold = 10
+    show_age_threshold = -1
     
     # Split notifications into multiple lines if they don't fit into
     # geometry.
@@ -76,7 +76,7 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "0x0-0+20"
+    geometry = "0x0-6+36"
     
     # Shrink window if it's s556064maller than the width.  Will be ignored if
     # width is 0.
@@ -85,7 +85,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing windowmanager is
     # present (e.g. xcompmgr, compiz, etc.).
-    transparency = 15
+    transparency = 0
     
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
@@ -111,10 +111,10 @@
     
     # Should a notification popped up from history be sticky or timeout
     # as if it would normally do.
-    sticky_history = yes
+    sticky_history = no
     
     # Maximum amount of notifications kept in history
-    history_length = 20
+    history_length = 0
     
     # Display indicators for URLs (U) and actions (A).
     show_indicators = yes
@@ -153,7 +153,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
     
     # Browser for opening urls in context menu.
-    browser = palemoon
+    browser = surf
 
     # Align icons left/right/off
     icon_position = left
@@ -172,31 +172,31 @@
     # Xev might be helpful to find names for keys.
     
     # Close notification.
-    close = mod1+space
+    close = mod1+c
     
     # Close all notifications.
     # close_all = ctrl+shift+space
-    close_all = ctrl+mod1+space
+    close_all = mod1+x
 
     # Redisplay last message(s).
     # On the US keyboard layout "grave" is normally above TAB and left
     # of "1".
-    history = ctrl+mod4+h 
+    history = mod1+n 
     
     # Context menu.
-    context = ctrl+mod1+c
+    context = mod1+m
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#0e0e0e"
+    background = "#000000"
     foreground = "#ffffff"
-    timeout = 10
+    timeout = 3
 
 [urgency_normal]
-    background = "#0e0e0e"
+    background = "#000000"
     foreground = "#ffffff"
-    timeout = 10
+    timeout = 3
 
 [urgency_critical]
     background = "#D62929"
