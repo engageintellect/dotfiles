@@ -21,8 +21,8 @@ killall autolaunch.sh
 ~/bin/autolaunch.sh &
 killall touchy
 ~/bin/touchy &
-sleep 2;
-~/bin/padding.sh &
+#sleep 2;
+~/bin/padding.sh
 
 
 # COLORS

@@ -127,7 +127,7 @@ super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
 # SEND NEW NODE TO NEWEST PRESELECT
-super + shift + y
+super + shift + p
 	bspc node newes.marked.local -n newest.!automatic.local
 
 # SWAP CURRENT WITH BIGGEST
