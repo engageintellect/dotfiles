@@ -7,6 +7,7 @@
 "BUILD: SurfaceBook 2
 "VERSION: 2.0
 
+" PLUGINS
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'gruvbox-community/gruvbox'
@@ -14,10 +15,18 @@ Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'mboughaba/i3config.vim'
 Plug 'dylanaraps/wal.vim'
+Plug 'ap/vim-css-color'
 
 call plug#end()
 
-" Pywal Colorscheme
+
+" LIGHTLINE THEME
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
+
+
+" PYWAL
 colorscheme wal
 set background=dark
 

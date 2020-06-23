@@ -16,6 +16,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'mboughaba/i3config.vim'
 Plug 'dylanaraps/wal.vim'
 Plug 'ap/vim-css-color'
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 

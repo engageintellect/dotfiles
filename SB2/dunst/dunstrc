@@ -9,7 +9,7 @@
     frame_width = 2
     frame_color = "#ffffff"
     
-    font = Ubuntu Regular 12
+    font = mononoki 12
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -193,12 +193,12 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#000000"
     foreground = "#ffffff"
-    timeout = 10
+    timeout = 3
 
 [urgency_normal]
     background = "#000000"
     foreground = "#ffffff"
-    timeout = 10
+    timeout = 3
 
 [urgency_critical]
     background = "#D62929"

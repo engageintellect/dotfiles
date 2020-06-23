@@ -53,9 +53,9 @@ module-margin-right = 2
 ; BAR FONTS
 font-0 = "Ubuntu Regular:size=10;2"
 font-1 = "Ubuntu Mono:size=10;3"
-font-2 = "Font Awesome:style=Regular:pixelsize=12;1"
-font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=12;1"
-font-4 = "Font Awesome 5 Brands:pixelsize=12;1"
+font-2 = "Font Awesome:style=Regular:pixelsize=10;1"
+font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=10;1"
+font-4 = "Font Awesome 5 Brands:pixelsize=10;1"
 
 modules-left = bspwm i3 xwindow
 modules-center = date
@@ -116,15 +116,15 @@ label-focused = %name%
 label-focused-background = ${colors.primary}
 label-focused-foreground = ${colors.background}
 label-focused-underline= ${colors.primary}
-label-focused-padding = 1
+label-focused-padding = 2
 label-occupied = %name%
-label-occupied-padding = 1
+label-occupied-padding = 2
 label-urgent = %name%!
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 1
+label-urgent-padding = 2
 label-empty = 
 label-empty-foreground = ${colors.foreground}
-label-empty-padding = 1
+label-empty-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -318,6 +318,7 @@ type = internal/battery
 battery = BAT0
 adapter = ADP1
 full-at = 98
+format-full = " BATTERY FULL "
 format-charging = " <label-charging>  "
 format-discharging = "<ramp-capacity> <label-discharging>  "
 format-charging-underline = #ffffff

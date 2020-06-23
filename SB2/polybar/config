@@ -41,11 +41,11 @@ module-margin-right = 1
 bottom = false
 
 ; BAR FONTS
-font-0 = "Ubuntu Regular:size=22;2"
-font-1 = "Ubuntu Mono:size=22;3"
-font-2 = "Font Awesome:style=Regular:pixelsize=22;1"
-font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=22;1"
-font-4 = "Font Awesome 5 Brands:pixelsize=22;1"
+font-0 = "Ubuntu Regular:size=24;2"
+font-1 = "Ubuntu Mono:size=24;3"
+font-2 = "Font Awesome:style=Regular:pixelsize=24;1"
+font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=24;1"
+font-4 = "Font Awesome 5 Brands:pixelsize=24;1"
 
 ;MODULE LAYOUT
 modules-left = i3
