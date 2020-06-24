@@ -1,0 +1,11 @@
+#!/bin/bash
+
+clear && echo 'REFRESHING MIRROR LIST' && sleep 2 && clear
+
+echo 'UPDATING MIRROR LIST' && sleep 2 && clear && sudo pacman-mirrors -ic United_States && clear
+
+sudo pacman-mirrors -f 5
+
+clear && echo 'RUNNING SYSTEM UPDATE' && sleep 2 && clear && sudo pacman -Syyu && clear
+
+echo 'SYSTEM UPDATE COMPLETE' && sleep 2 && clear

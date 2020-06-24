@@ -7,8 +7,8 @@
 
 
 # Window Manager Settings
-Xft.dpi: 175
-exec i3
+Xft.dpi: 196
+#exec i3
 
 #Xft.dpi: 165
 #exec qtile

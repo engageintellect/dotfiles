@@ -1,3 +1,3 @@
 
-exec i3
+#exec bspwm
 wal -R
