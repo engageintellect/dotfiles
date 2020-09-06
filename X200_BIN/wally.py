@@ -13,15 +13,14 @@ import time
 import subprocess
 
 def setwall():
-    pic = subprocess.getoutput('sxiv -t -o ~/pictures')
+    pic = subprocess.getoutput('sxiv -b -t -o ~/pictures')
     if pic == '':
         quit()
     else:
         os.system('nitrogen --save --set-zoom-fill ' + pic)
         os.system('wal -i ' + pic)
+        os.system('pywalfox update')
         os.system('if pgrep -x bspwm; then bspc wm -r; fi')
-        os.system('if pgrep -x pywalfox; then pywalfox update; fi')
-    #    os.system('if pgrep -x bspwm; then bspc wm -r; sleep 3; bspc config top_padding 30; fi')
         quit()
 
 setwall()

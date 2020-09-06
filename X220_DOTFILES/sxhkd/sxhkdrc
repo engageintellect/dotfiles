@@ -4,59 +4,83 @@
 #\__ \>  <| | | |   < (_| | | | | (__
 #|___/_/\_\_| |_|_|\_\__,_| |_|  \___|
 #
-# Build: ThinkPad X220
-# Version: 1.0
-
+# Build: ThinkPad X220 
+# Version: 2.0
 
 ####################################################################################
-#
-# CUSTOM BINDINGS
-#
+#                 
+# CUSTOM BINDINGS 
+#                 
 ####################################################################################
 
-# TERMINAL
+#===[ UTILITIES ]===#
+
+# TERMINAL 
 super + Return
 	st
 super + a
     alacritty
-
 # SCRATCHPAD
-super + shift + Return
+#super + shift + Return
+Menu
     ~/bin/scratchy.sh
-
 # LAUNCHERS
 super + d
-	dmenu_run -fn 'mononoki Nerd Font -12' -nb '#000000' -sf '#000000' -sb '#ffffff' -nf '#ffffff' -p 'Run: ' -b
+    ~/bin/dmenu_pywal.sh
+	#dmenu_run -fn 'mononoki Nerd Font -11' -nb '#000000' -sf '#000000' -sb '#ffffff' -nf '#ffffff' -p 'Run: ' -h 30
 
-# REDLOAD SXHKD CONFIG 
-super + shift + r
-	pkill -USR1 -x sxhkd
+# NETWORK MANAGER DMENU
+super + shift + n
+     networkmanager_dmenu  -fn 'mononoki Nerd Font-10' -nb '#000000' -sf '#000000' -sb '#ffffff' -nf '#ffffff' -w 708 -h 0
+
+
+#==[ ROFI ]==#
+
+# ROFI RUN
+super + shift + d
+     rofi -show run -lines 6 -eh 2 -width 300 -padding 20 -opacity "20" -font "mononoki Nerd Font 10"
+# ROFI WINDOWS
+super + shift + w
+     rofi -show window -lines 12 -eh 2 -width 600 -padding 20 -opacity "20" -font "mononoki Nerd Font 10"
+# ROFI SSH
+super + shift + s
+     rofi -show ssh -lines 12 -eh 2 -width 600 -padding 20 -opacity "20" -font "mononoki Nerd Font 10"
+ # ROFI COMBI
+super + shift + c
+     rofi -show combi -lines 12 -eh 2 -width 600 -padding 20 -opacity "20" -font "mononoki Nerd Font 10"
+
+
+#===[ BROWSERS ]===#
+
+super + s 
+    surf -z .90 https://web.tabliss.io/ 
+super + i
+    bspc desktop -f '^2' && qutebrowser
+super + f
+    firefox
+super + c
+    chromium
+
+
+#==[ PROGRAM BINDINGS ]===#
 
 # SCREEN LOCK
 super + shift + e
-    blurlock 
+    slock
 
 # WALLY
 super + shift + b
     ~/bin/wally.py
 
-# BROWSERS
-super + s 
-    surf -z 1.0 duckduckgo.com
-super + i
-    bspc desktop -f '^2' && qutebrowser
-super + f
-    firefox
-
 # YOUTUBE
 super + y
-    bspc desktop -f '^5' && qutebrowser youtube.com
+    bspc desktop -f '^5' && surf -z .80 youtube.com
 
 # EMAIL
 super + g
-    bspc desktop -f '^10' && st -e mutt
+    bspc desktop -f '^7' && st -e mutt
 super + shift + g
-    bspc desktop -f '^10' && surf gmail.com
+    bspc desktop -f '^7' && surf gmail.com
 
 # PULSEMIXER
 super + shift + a
@@ -64,15 +88,19 @@ super + shift + a
 
 # YTOP
 super + shift + y
-    st -n ytop -e ytop
+    st -n ytop -e ytop -f
 
 # SPOTIFY
 super + m
     bspc desktop -f '^5' && spotify
 
+# VIRTUALBOX
+super + v
+    bspc desktop -f '^8' && virtualbox
+
 # PCMANFM
 super + e
-    pcmanfm
+    pcmanfm-qt
 
 # NITROGEN
 super + n
@@ -82,9 +110,20 @@ super + n
 Print
     scrot
 
+# PICOM
+super + shift + p
+    killall picom; picom & 
+
 # LOCK
 Scroll_Lock
     blurlock
+
+
+#===[ BSPWM BINDINGS ]===#
+
+# REDLOAD SXHKD CONFIG 
+super + shift + r
+	pkill -USR1 -x sxhkd
 
 # RELOAD BSPWM
 super + ctrl + r
@@ -131,8 +170,8 @@ super + shift + p
 	bspc node newes.marked.local -n newest.!automatic.local
 
 # SWAP CURRENT WITH BIGGEST
-super + shift + s
-	bspc node -s biggest
+#super + shift + s
+#	bspc node -s biggest
 
 ####################################################################################
 #
@@ -144,27 +183,35 @@ super + shift + s
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-# FOCUS NODE FOR GIVEN PATH JUMP
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
+# MIRROR AND FLIP LEAVES OF TREE
+super + {comma,period}
+	bspc node @/ -F {horizontal,vertical}
+
+# ROTATE STACK 
+super + shift + {period,comma}
+	bspc node @/ -R {90,270}
+
+## FOCUS NODE FOR GIVEN PATH JUMP
+#super + {p,b,comma,period}
+#	bspc node -f @{parent,brother,first,second}
 
 # FOCUS NEXT/PREVIOUS NODE IN CURRENT DESKTOP
-super + {_,shift + }c
+super + {_,shift + }semicolon
 	bspc node -f {next,prev}.local
 
-# FOCUS NEXT/PREVIOUS DESKTOP IN CURRENT MONITOR
-super + bracket{left,right}
-	bspc desktop -f {prev,next}.local
-
-# FOCUS THE LAST NODE/DESKTOP
-super + {grave,Tab}
-	bspc {node,desktop} -f last
-
-# FOCUS OLDER OR NEWER NODE IN THE FOCUS HISTORY
-super + ctrl + {o,i}
-	bspc wm -h off; \
-	bspc node {older,newer} -f; \
-	bspc wm -h on
+## FOCUS NEXT/PREVIOUS DESKTOP IN CURRENT MONITOR
+#super + bracket{left,right}
+#	bspc desktop -f {prev,next}.local
+#
+## FOCUS THE LAST NODE/DESKTOP
+#super + {grave,Tab}
+#	bspc {node,desktop} -f last
+#
+## FOCUS OLDER OR NEWER NODE IN THE FOCUS HISTORY
+#super + ctrl + {o,i}
+#	bspc wm -h off; \
+#	bspc node {older,newer} -f; \
+#	bspc wm -h on
 
 # MOVE WORKSPACES
 super + {_,shift + }{1-9,0}
@@ -212,9 +259,9 @@ super + {Left,Down,Up,Right}
 
 # CHANGE WINDOW GAP SIZE
 alt + k
-	bspc config window_gap {0,12,16,32,46,64,84}
+	bspc config window_gap {0,12,16,32,46,64,84,96}
 alt + j
-	bspc config window_gap {0,2,4,6,8,10,12,14,16,18,20}
+	bspc config window_gap {0,2,4,6,8,10,12}
 
 # EXPAND/CONTRACT FLOATING WINDOWS ON ALL SIDES
 alt + h
@@ -244,6 +291,4 @@ XF86AudioLowerVolume
 
 XF86AudioMute
     pactl set-sink-mute 1 toggle
-
-
 

@@ -2,5 +2,5 @@
 
 # Bash scripts to fix BSPWM/Polybar padding.
 
-sleep 2;
+sleep 4;
 bspc config top_padding 30

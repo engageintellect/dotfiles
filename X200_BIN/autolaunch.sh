@@ -26,11 +26,6 @@ xfce4-power-manager &
 killall -q dunst
 dunst &
 
-# POLYBAR
-killall -q polybar
-while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
-polybar -r new &
-
 # NITROGEN
 killall -q nitrogen
 while pgrep -u $UID -x nitrogen >/dev/null; do sleep 1; done
@@ -40,14 +35,20 @@ nitrogen --restore &
 wal -R
 
 # AUTOLOCK
-killall -q xautolock blurlock
-xautolock -time 20 -locker blurlock &
+killall -q xautolock slock
+xautolock -time 20 -locker slock &
 
-# COMPTON 
-killall -q compton
-while pgrep -u $UID -x compton >/dev/null; do sleep 1; done
+# POLYBAR
+killall -q polybar
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+polybar -r new &
+
+# PICOM/COMPTON 
+killall -q picom
+while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
 #while compton -b; do true; done
-compton --config ~/.config/compton/compton.conf &
+#compton --config ~/.config/compton/compton.conf &
+picom &
 
-
-
+# UPDATE NOTIFIER 
+#python3 ~/bin/update_notifier.py
