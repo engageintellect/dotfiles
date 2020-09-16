@@ -92,8 +92,9 @@ bspc rule -a Alacritty rectangle=900x600+0+0 center=true
 bspc rule -a Gimp desktop='^5' state=floating follow=on
 bspc rule -a qutebrowser rectangle=900x600+0+0 center=true
 bspc rule -a Surf state=floating rectangle=900x600+0+0 center=true
-bspc rule -a Chromium state=tiled rectangle=900x600+0+0 center=true
+bspc rule -a Chromium state=floating rectangle=900x600+0+0 center=true
 bspc rule -a Emacs state=tiled rectangle=900x600+0+0 center=true
+bspc rule -a "VirtualBox Manager" state=floating rectangle=900x600+0+0 center=true
 bspc rule -a firefox rectangle=900x600+0+0 center=true
 bspc rule -a Spotify desktop='^5' state=floating rectangle=1200x600+0+0 center=true
 bspc rule -a mplayer2 state=floating

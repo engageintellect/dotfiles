@@ -1,0 +1,123 @@
+!!  __  __
+!!  \ \/ /_ __ ___  ___  ___  _   _ _ __ ___ ___  ___
+!!   \  /| '__/ _ \/ __|/ _ \| | | | '__/ __/ _ \/ __|
+!! _ /  \| | |  __/\__ \ (_) | |_| | | | (_|  __/\__ \
+!!(_)_/\_\_|  \___||___/\___/ \__,_|_|  \___\___||___/
+!! 
+!! BUILD: ThinkPad X220
+!! VERSION: 1.0
+
+
+Xcursor.theme: Bibata_Ice
+
+
+ROFI Color theme
+rofi.color-enabled: true
+rofi.color-window: #000000, #000000, #000000
+rofi.color-normal: #000000, #F2F3F4, #000000, #F2F3F4, #000000
+rofi.color-active: #000000, #F2F3F4, #000000, #F2F3F4, #000000
+rofi.color-urgent: #000000, #F2F3F4, #000000, #F2F3F4, #000000
+
+
+!! URXVT settings
+
+!! URxvt.depth:                32
+URxvt.geometry:             90x30
+URxvt.loginShell:           true
+URxvt.internalBorder:       20
+URxvt.lineSpace:            0
+
+!! transparency - true or false (default)
+URxvt*transparent: false
+
+!! tint with any color; i.e., blue, red, tomato4, olivedrab2, etc.
+!!   some nice listings are at:
+!!     http://www.nisrv.com/drupal/?q=node/11
+!!     http://www.htmlgoodies.com/tutorials/colors/article.php/3478921
+!!URxvt*tintColor: S_base03
+
+!! shading - 0 to 99 darkens, 101 to 200 lightens.
+URxvt*shading: 15
+
+
+!! URxvt*background: rgba:0000/0000/0000/cccc
+
+URxvt*saveLines: 12000
+
+!! URxvt*foreground: #657b83
+!! URxvt*background: #002b36
+
+!! Monaco Linux font
+URxvt*font: xft:Ubuntu Mono:pixelsize=14
+URxvt*boldFont: xft:Ubuntu Mono:bold:pixelsize=14
+URxvt*letterSpace: -1
+
+!! scrollbar - true (default) or false
+URxvt*scrollBar: false
+
+!! scrollbar position - left=false (default) or right=true
+URxvt*scrollBar_right: true
+
+!! scrollbar style - rxvt (default), plain, next, or xterm
+URxvt*scrollstyle: plain
+
+
+!! DRACULA
+! special
+!!URxvt*foreground:   #bbc5ff
+!!URxvt*background:   [95]#282a36
+!!URxvt*cursorColor:  #bbc5ff
+!!XTerm*foreground: #bbc5ff
+!!XTerm*background: #282a36
+!!XTerm*cursorColor: #bbc5ff
+!!! black
+!!*.color0:       #101010  !! originally #292d3e
+!!*.color8:       #434758
+!!! red
+!!*.color1:       #f07178
+!!*.color9:       #ff8b92
+!!! green
+!!*.color2:       #c3e88d
+!!*.color10:      #ddffa7
+!!! yellow
+!!*.color3:       #ffcb6b
+!!*.color11:      #ffe585
+!!! blue
+!!*.color4:       #82aaff
+!!*.color12:      #9cc4ff
+!!! magenta
+!!*.color5:       #c792ea
+!!*.color13:      #e1acff
+!!! cyan
+!!*.color6:       #89ddff
+!!*.color14:      #a3f7ff
+!!! white
+!!*.color7:       #d0d0d0
+!!*.color15:      #ffffff
+
+
+
+
+!!emacs*foreground: #c1d2dc
+!!emacs*background: #101216
+!!
+!!*foreground: #000000
+!!*background: #FFFFFF
+!!*.color0:  #101216
+!!*.color1:  #6A8899
+!!*.color2:  #7797A9
+!!*.color3:  #7EA1B3
+!!*.color4:  #7DA5C5
+!!*.color5:  #809FB0
+!!*.color6:  #85A7B9
+!!*.color7:  #c1d2dc
+!!*.color8:  #87939a
+!!*.color9:  #6A8899
+!!*.color10:  #7797A9
+!!*.color11:  #7EA1B3
+!!*.color12:  #7DA5C5
+!!*.color13:  #809FB0
+!!*.color14:  #85A7B9
+!!*.color15:  #c1d2dc
+
+

@@ -38,16 +38,16 @@ super + shift + n
 
 # ROFI RUN
 super + shift + d
-     rofi -show run -lines 6 -eh 2 -width 300 -padding 20 -opacity "20" -font "mononoki Nerd Font 10"
+     rofi -show run -lines 6 -eh 2 -width 300 -padding 20 -opacity "20" -font "Ubuntu Regular 10"
 # ROFI WINDOWS
 super + shift + w
-     rofi -show window -lines 12 -eh 2 -width 600 -padding 20 -opacity "20" -font "mononoki Nerd Font 10"
+     rofi -show window -lines 12 -eh 2 -width 600 -padding 20 -opacity "20" -font "Ubuntu Regular 10"
 # ROFI SSH
 super + shift + s
-     rofi -show ssh -lines 12 -eh 2 -width 600 -padding 20 -opacity "20" -font "mononoki Nerd Font 10"
+     rofi -show ssh -lines 12 -eh 2 -width 600 -padding 20 -opacity "20" -font "Ubuntu Regular 10"
  # ROFI COMBI
 super + shift + c
-     rofi -show combi -lines 12 -eh 2 -width 600 -padding 20 -opacity "20" -font "mononoki Nerd Font 10"
+     rofi -show combi -lines 12 -eh 2 -width 600 -padding 20 -opacity "20" -font "Ubuntu Regular 10"
 
 
 #===[ BROWSERS ]===#
@@ -90,17 +90,17 @@ super + shift + a
 super + shift + y
     st -n ytop -e ytop -f
 
-# SPOTIFY
+# APPLE MUSIC
 super + m
-    bspc desktop -f '^5' && spotify
+    bspc desktop -f '^5' && chromium --new-window --app=https://music.apple.com
 
 # VIRTUALBOX
 super + v
     bspc desktop -f '^8' && virtualbox
 
-# PCMANFM
+# EMACS
 super + e
-    pcmanfm-qt
+    bspc desktop -f '^10' && emacs
 
 # NITROGEN
 super + n
@@ -292,3 +292,6 @@ XF86AudioLowerVolume
 XF86AudioMute
     pactl set-sink-mute 1 toggle
 
+# SHOW BATTERY INFO
+#super + b
+#    python ~/code/python/dunst_notifications/battery.py
