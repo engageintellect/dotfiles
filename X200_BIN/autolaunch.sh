@@ -18,6 +18,9 @@ xset r rate 275 200
 # KEYSWAP
 /usr/bin/setxkbmap -option "caps:swapescape" &
 
+# CLIPMENU
+clipmenud &
+
 # POWER MANAGER
 killall -q xfce4-power-manager
 xfce4-power-manager &
@@ -33,6 +36,12 @@ nitrogen --restore &
 
 # PYWAL
 wal -R
+
+# ST PYWAL COLORS
+python ~/bin/st_pywal.py
+
+# DUNST PYWAL COLORS
+/home/r3dux/bin/dunst_pywal.sh
 
 # AUTOLOCK
 killall -q xautolock slock
@@ -50,5 +59,5 @@ while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
 #compton --config ~/.config/compton/compton.conf &
 picom &
 
-# UPDATE NOTIFIER 
-#python3 ~/bin/update_notifier.py
+
+
