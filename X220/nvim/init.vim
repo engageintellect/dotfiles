@@ -4,8 +4,10 @@
 "| | | |  __/ (_) \ V /| | | | | | | | | | (__ 
 "|_| |_|\___|\___/ \_/ |_|_| |_| |_| |_|  \___|
 "##############################################
+"
 " BUILD: Universal
 " VERSION: 1
+"
 "
 " PLUGINS "
 call plug#begin('~/.config/nvim/plugged')
@@ -18,9 +20,18 @@ Plug 'ap/vim-css-color'
 Plug 'junegunn/goyo.vim'
 call plug#end()
 
+
+" KEYBINDINGS "
+nnoremap <silent> <C-q> :q<CR>
+nnoremap <silent> <C-t> :FZF<CR>
+nnoremap <silent> <C-f> :NERDTree<CR>
+nnoremap <silent> <C-g> :Goyo<CR>
+
+
 " PYWAL "
 colorscheme wal
 set background=dark
+
 
 " LIGHTLINE COLORSCHEME "
 let g:lightline = {
@@ -59,9 +70,11 @@ set splitright
 set updatetime=300
 set noswapfile
 
+
+" KITE "
 let g:kite_supported_languages = ['python']
 
-" ~/.vimrc
-" Sets cursor styles
-" Block in normal, line in insert, underline in replace
+
+" CURSOR BLOCK STYLE "
 set guicursor=n-v-c-sm:hor20,i-ci-ve:ver25-Cursor,r-cr-o:hor20
+

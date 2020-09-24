@@ -15,9 +15,15 @@
 
 #===[ UTILITIES ]===#
 
+
+# BATT
+super + b
+    ~/bin/batt.sh
 # TERMINAL 
 super + Return
-	st
+    st
+	#st -e zsh -c tmux
+
 super + a
     alacritty
 # SCRATCHPAD
@@ -31,8 +37,12 @@ super + d
 
 # NETWORK MANAGER DMENU
 super + shift + n
-     networkmanager_dmenu  -fn 'mononoki Nerd Font-10' -nb '#000000' -sf '#000000' -sb '#ffffff' -nf '#ffffff' -w 708 -h 0
+     ~/bin/networkmanager_dmenu_pywal.sh
+     #networkmanager_dmenu  -fn 'mononoki Nerd Font-10' -nb '#000000' -sf '#000000' -sb '#ffffff' -nf '#ffffff'
 
+# CLIPMENU
+super + x
+    ~/bin/clipmenu_pywal.sh
 
 #==[ ROFI ]==#
 
@@ -74,7 +84,7 @@ super + shift + b
 
 # YOUTUBE
 super + y
-    bspc desktop -f '^5' && surf -z .80 youtube.com
+    bspc desktop -f '^5' && chromium --new-window --app=https://youtube.com
 
 # EMAIL
 super + g
@@ -108,7 +118,7 @@ super + n
 
 # SCREENSHOT
 Print
-    scrot
+    ~/bin/screenshot.sh
 
 # PICOM
 super + shift + p
@@ -116,7 +126,7 @@ super + shift + p
 
 # LOCK
 Scroll_Lock
-    blurlock
+    slock
 
 
 #===[ BSPWM BINDINGS ]===#
@@ -259,7 +269,7 @@ super + {Left,Down,Up,Right}
 
 # CHANGE WINDOW GAP SIZE
 alt + k
-	bspc config window_gap {0,12,16,32,46,64,84,96}
+	bspc config window_gap {0,6,12,18,32,48,64,86}
 alt + j
 	bspc config window_gap {0,2,4,6,8,10,12}
 
