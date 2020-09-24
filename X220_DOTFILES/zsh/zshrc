@@ -8,13 +8,10 @@
 # Version 1.5
 
 
+# SOURCE PYWAL COLORS
 . "${HOME}/.cache/wal/colors.sh"
 
-# Create the alias.
-alias dmen='dmenu_run -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"'
 
-
-#
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -117,12 +114,12 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
- else
-   export EDITOR='nvim'
- fi
+## Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='nvim'
+# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -140,17 +137,17 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # ALIASES
+alias s='python ~/bin/searcher.py'
+alias ff='fzf'
 alias p='python ~/code/python/tools/ping.py'
 alias del='rm -rf'
-alias wally='python3 ~/bin/wally.py'
 alias h='cd'
 alias covid='python3 ~/code/python/tools/covid.py'
-alias covid2='python3 ~/code/python/tools/covid_2.py'
 alias arp='python3 ~/code/python/tools/arp_scanner.py'
 alias vpn='python3 ~/code/python/tools/vpn-tool.py'
 alias services='systemctl --type=service'
 alias todo='calcurse'
-alias f='fff'
+#alias f='fff'
 alias bsprc='nvim ~/.config/bspwm/bspwmrc'
 alias sxhkdrc='nvim ~/.config/sxhkd/sxhkdrc'
 alias polyconf='nvim ~/.config/polybar/config'
@@ -169,20 +166,15 @@ alias eq='qpaeq'
 alias mixer='alsamixer'
 alias myip='ip --color=auto a'
 alias neo='unimatrix -c white -s 92 -u abcdefghijklmnopqrstuvwxyz1234567890!@#$%'
-alias pbar='nvim .config/polybar/config'
 alias i3='nvim ~/.i3/config'
-alias i3stat='nvim ~/.config/i3status_config'
-alias compconf='nvim ~/.config/compton/compton.conf'
 alias nvimrc='nvim ~/.config/nvim/init.vim'
 alias bashrc='nvim ~/.bashrc'
 alias zshrc='nvim ~/.zshrc'
-alias system='bmenu'
 alias files='ranger'
 alias xfiles='sudo ranger'
 alias root='sudo -i'
 #alias yt='youtube-dl'
 alias yt='python3 ~/code/python/tools/youtube_dl.py'
-alias crittyconf='nvim ~/.config/alacritty/alacritty.yml'
 alias netstat='sudo iftop -i wlp3s0'
 alias mix='pulsemixer'
 
@@ -190,6 +182,7 @@ alias mix='pulsemixer'
 alias sync='sudo pacman --color auto -Syy'
 alias update='sudo pacman --color auto -Syyu'
 alias search='pacman --color auto -Ss'
+alias pacinfo='pacman -Si'
 alias install='sudo pacman --color auto -S'
 alias remove='sudo pacman --color auto -Rns'
 alias paclist='pacman --color auto -Q | less'
@@ -203,14 +196,27 @@ alias SB2='ssh 192.168.0.153'
 alias x220='ssh 192.168.0.253'
 alias mom='ssh janakind-chadwick@192.168.0.9'
 
+## DMENU ALIASES
+alias dmenu='dmenu -fn "mononoki Nerd Font -9" -h 30 -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"'
+alias dmenu_run='dmenu_run -fn "mononoki Nerd Font -9" -h 30 -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"'
+
 # PYWAL
 (cat ~/.cache/wal/sequences &)
+# Alternative (blocks terminal for 0-3ms)
+cat ~/.cache/wal/sequences
+# To add support for TTYs this line can be optionally added.
+source ~/.cache/wal/colors-tty.sh
 
-# ADD TO PATH
-export PATH="/home/r3dux/.cargo/bin:$PATH"
-export PATH="/home/r3dux/scripts:$PATH"
-export PATH="/home/r3dux/bin:$PATH"
-export PATH="/home/r3dux/.emacs.d/bin:$PATH"
+## ADD TO PATH
+#export PATH="/home/r3dux/.cargo/bin:$PATH"
+#export PATH="/home/r3dux/scripts:$PATH"
+#export PATH="/home/r3dux/bin:$PATH"
+#export PATH="/home/r3dux/.emacs.d/bin:$PATH"
+#
+## GO-lang PATH
+#export GOPATH=$HOME/code/go
+#export GOBIN=$HOME/code/go/bin
+
 
 # VI MODE
 bindkey -v
@@ -218,11 +224,18 @@ bindkey -v
 # FZF search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
+#FFF
+f() {
+    fff "$@"
+    cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
+}
+
 ## TMUX
 #[[ $- != *i* ]] && return
 ## Otherwise start tmux
 #[[ -z "$TMUX" ]] && exec tmux
 
 # FORTUNE
-clear && python3 ~/code/python/tools/fortune.py
+clear && python ~/code/python/tools/fortune.py
 

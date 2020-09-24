@@ -1,0 +1,22 @@
+#           _
+#   _______| |__   ___ _ ____   __
+#  |_  / __| '_ \ / _ \ '_ \ \ / /
+# _ / /\__ \ | | |  __/ | | \ V /
+#(_)___|___/_| |_|\___|_| |_|\_/
+#
+# Version: 1.0
+# Build: ThinkPad X220
+
+
+# EDITOR
+export EDITOR='nvim'
+
+# ENVIRONMENTAL EXPORTS
+export PATH="/home/r3dux/.cargo/bin:$PATH"
+export PATH="/home/r3dux/scripts:$PATH"
+export PATH="/home/r3dux/bin:$PATH"
+export PATH="/home/r3dux/.emacs.d/bin:$PATH"
+
+# GO LANG EXPORTS
+export GOPATH+$HOME/code/go
+export GOBIN+$HOME/code/go/bin
