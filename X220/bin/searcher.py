@@ -14,7 +14,7 @@ def searcher():
     
     if usr_input != 'q':
         #search_string = f"surf 'google.com/search?&q={usr_input}'"
-        search_string = f"surf 'duckduckgo.com/{usr_input}'"
+        search_string = f"surf 'duckduckgo.com/{usr_input}' &"
         search = subprocess.call(search_string, shell=True)
         searcher()
     else:
