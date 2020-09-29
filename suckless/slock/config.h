@@ -3,8 +3,8 @@ static const char *user  = "r3dux";
 static const char *group = "wheel";
 
 static const char *colorname[NUMCOLS] = {
-	[INIT] =   "000000",     /* after initialization */
-	[INPUT] =  "00000000",   /* during input */
+	[INIT] =   "#081E29",     /* after initialization */
+	[INPUT] =  "black",   /* during input */
 	[FAILED] = "#CC3333",   /* wrong password */
 };
 
@@ -18,4 +18,4 @@ static const char * message = "ENTER PASSWORD TO RESUME";
 static const char * text_color = "#ffffff";
 
 /* text size (must be a valid size) */
-static const char * font_name = "-xos4-terminus-bold-r-normal--32-320-72-72-c-160-iso10646-1";
+static const char * font_name = "-xos4-terminus-bold-r-normal--32-320-72-72-c-160-iso10646-1"; 
