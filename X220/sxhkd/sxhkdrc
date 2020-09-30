@@ -16,13 +16,10 @@
 #===[ UTILITIES ]===#
 
 
-# BATT
-super + b
-    ~/bin/batt.sh
 # TERMINAL 
 super + Return
-    st
-	#st -e zsh -c tmux
+    xst
+	#xst -e zsh -c tmux
 
 super + a
     alacritty
@@ -88,17 +85,17 @@ super + y
 
 # EMAIL
 super + g
-    bspc desktop -f '^7' && st -e mutt
+    bspc desktop -f '^7' && xst -e mutt
 super + shift + g
     bspc desktop -f '^7' && surf gmail.com
 
 # PULSEMIXER
 super + shift + a
-    st -n pulsemixer -e pulsemixer
+    xst -n pulsemixer -e pulsemixer
 
 # YTOP
 super + shift + y
-    st -n ytop -e ytop -f
+    xst -n ytop -e ytop -f
 
 # APPLE MUSIC
 super + m
@@ -302,6 +299,14 @@ XF86AudioLowerVolume
 XF86AudioMute
     pactl set-sink-mute 1 toggle
 
-# SHOW BATTERY INFO
-#super + b
-#    python ~/code/python/dunst_notifications/battery.py
+# BATT
+super + b
+    ~/bin/batt.sh
+
+# BRIGHTNESS CONTROL (brightnessctl)
+
+super + shift + plus
+    sudo brightnessctl set 1%+
+
+super + shift + minus
+    sudo brightnessctl set 1%-
