@@ -4,7 +4,7 @@
 
 id=$(xdo id -n scratchy);
 if [ -z "$id" ]; then
-  st -n scratchy -e zsh -c "tmux new-session -A -s dummy"
+  xst -n scratchy -e zsh -c "tmux new-session -A -s scratchy"
 else
   action='hide';
   if [[ $(xprop -id $id | awk '/window state: / {print $3}') == 'Withdrawn' ]]; then
