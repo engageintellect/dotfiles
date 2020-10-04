@@ -6,26 +6,37 @@
 "##############################################
 "
 " BUILD: Universal
-" VERSION: 1
-"
-"
+" VERSION: 1.5
+
+
 " PLUGINS "
 call plug#begin('~/.config/nvim/plugged')
 Plug 'gruvbox-community/gruvbox'
 Plug 'scrooloose/nerdtree'
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
 Plug 'mboughaba/i3config.vim'
 Plug 'dylanaraps/wal.vim'
 Plug 'ap/vim-css-color'
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'tpope/vim-commentary'
+Plug 'rafi/awesome-vim-colorschemes'
+"Plug 'neoclide/coc.nvim'
 call plug#end()
 
 
 " KEYBINDINGS "
-nnoremap <silent> <C-q> :q<CR>
-nnoremap <silent> <C-t> :FZF<CR>
-nnoremap <silent> <C-f> :NERDTree<CR>
-nnoremap <silent> <C-g> :Goyo<CR>
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+"nnoremap <silent> <C-q> :q<CR>
+nmap <Leader>q :q<CR>
+nmap <Leader>w :w<CR>
+nmap <Leader>wq :wq<CR>
+nmap <Leader>l :Limelight!!<CR>
+nmap <Leader>f :FZF<CR>
+nmap <Leader>t :NERDTreeToggle<CR>
+"nmap <Leader>t :Vexplore<CR>
+nmap <Leader>g :Goyo<CR>
 
 
 " PYWAL "
@@ -33,22 +44,23 @@ colorscheme wal
 set background=dark
 
 
-" LIGHTLINE COLORSCHEME "
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
-
+" AIRLINE "
+let g:airline_theme = 'wal'
 
 " SETTINGS "
-let NERDTreeShowHidden=1
+set nocompatible
+filetype plugin on
 set filetype=i3config
+syntax enable
+set path+=**
+set wildmenu
+set wildmode=longest:full,full
+
+let NERDTreeShowHidden=1
 set number
 set relativenumber
-"set cursorline
-"set cursorcolumn
 set autoindent
 set expandtab
-set filetype
 set shiftwidth=4
 set tabstop=4
 set smarttab
@@ -56,19 +68,31 @@ set hlsearch
 set ignorecase
 set incsearch
 set smartcase
-set wildmenu
 set mouse=a
 set title
-"set syntax enable
-"set set hidden                      
 set nowrap                      
 set ruler
 set cmdheight=1
 set splitbelow
 set splitright
-"set showtabline=2
 set updatetime=300
 set noswapfile
+
+"set cursorline
+"set cursorcolumn
+"set set hidden                      
+"set showtabline=1
+
+" NETRW "
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 20
+"augroup ProjectDrawer
+"  autocmd!
+"  autocmd VimEnter * :Vexplore
+"augroup END
 
 
 " KITE "
