@@ -11,7 +11,7 @@
 set $mod Mod4
 
 # FONT
-font pango: Ubuntu Regular, FontAwesome 9
+font pango: Ubuntu Regular, FontAwesome 10
 
 # MOUSE CONTROL
 floating_modifier $mod
@@ -133,7 +133,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 for_window [class="^.*"] border pixel 2
 gaps inner 0
 gaps outer 0
-smart_gaps on
+#smart_gaps on
 smart_borders on
 
 # RESIZE
@@ -206,17 +206,17 @@ exec --no-startup-id xinput set-prop TPPS/2\ IBM\ TrackPoint libinput\ Accel\ Sp
 # AUTOSTART PROGRAMS
 #exec --no-startup-id xrandr --dpi 200
 #exec --no-startup-id feh --bg-fill ~/Pictures/twisted.jpg
-exec --no-startup-id $HOME/bin/autolaunch.sh
+exec_always --no-startup-id $HOME/bin/autolaunch.sh
 
 # SCRATCHPAD
-exec --no-startup-id st -t scratch
-bindsym $mod+Shift+Return exec --no-startup-id i3-msg scratchpad show
-for_window [title="scratch"] border pixel 0
+exec_always --no-startup-id st -t scratch -e zsh -c "tmux new-session -A -s dummy"
+bindsym Menu exec --no-startup-id i3-msg scratchpad show
 for_window [title="scratch"] floating enable
 for_window [title="scratch"] resize set 800 600
 for_window [title="scratch"] move position center
 for_window [title="scratch"] move scratchpad
 for_window [title="scratch"] move down
+for_window [title="scratch"] border pixel 0
 
 # CUSTOM KEYBINDINGS
 #bindsym $mod+Shift+e exec --no-startup-id /usr/local/bin/slock
@@ -255,12 +255,13 @@ for_window [class="Pcmanfm"] floating enable resize set 600 400
 for_window [class="Pcmanfm"] move position center
 for_window [title="mixer"] floating enable resize set 500 300
 for_window [title="mixer"] move position center
-for_window [class="Sxiv"] floating enable resize set 900 600
+for_window [class="Sxiv"] floating enable resize set 1200 600
 for_window [class="Sxiv"] move position center
 for_window [class="Kvantum Manager"] floating enable resize set 600 500
 for_window [class="Kvantum Manager"] move position center
 for_window [class="qt5ct"] floating enable resize set 600 500
 for_window [class="qt5ct"] move position center
+for_window [class="Qutebrowser"] move position center
 
 # FIBONACCI LAYOUT
 #exec --no-startup-id /home/r3dux/scripts/i3/fibonacci.py

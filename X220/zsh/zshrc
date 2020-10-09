@@ -7,10 +7,8 @@
 # ThinkPad X220
 # Version 1.5
 
-
-# SOURCE PYWAL COLORS
+###[ SOURCE PYWAL COLORS ]###
 . "${HOME}/.cache/wal/colors.sh"
-
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -25,7 +23,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="/home/r3dux/.oh-my-zsh"
 
-# THEME
+###[ THEME ]###
 #ZSH_THEME="random"
 ZSH_THEME="nanotech"
 #ZSH_THEME="gallois"
@@ -102,7 +100,6 @@ plugins=(git
          fzf
          zsh-autosuggestions
          zsh-syntax-highlighting
-
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -115,11 +112,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 ## Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -136,10 +133,14 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# ALIASES
+###[ ALIASES ]###
+alias surf='surf -N'
+alias pyserver='python -m http.server 8080'
+alias psearch='~/bin/pacsearch.sh'
+alias v='nvim $(fzf)'
 alias s='python ~/bin/searcher.py'
 alias ff='fzf'
-alias p='python ~/code/python/tools/ping.py'
+alias xf='sudo fff'
 alias del='rm -rf'
 alias h='cd'
 alias covid='python3 ~/code/python/tools/covid.py'
@@ -147,13 +148,13 @@ alias arp='python3 ~/code/python/tools/arp_scanner.py'
 alias vpn='python3 ~/code/python/tools/vpn-tool.py'
 alias services='systemctl --type=service'
 alias todo='calcurse'
-#alias f='fff'
 alias bsprc='nvim ~/.config/bspwm/bspwmrc'
 alias sxhkdrc='nvim ~/.config/sxhkd/sxhkdrc'
-alias polyconf='nvim ~/.config/polybar/config'
-alias piconf='nvim ~/.config/picom/picom.conf'
 alias gh='surf github.com/jc9361'
 alias ls='exa --icons'
+alias l='ls -l'
+alias ll='ls -al'
+alias la='ls -a'
 alias photos='sxiv -t -f ~/pictures'
 alias uptime='uptime -p'
 alias update-zsh='upgrade_oh_my_zsh'
@@ -165,7 +166,8 @@ alias audio='pavucontrol'
 alias eq='qpaeq'
 alias mixer='alsamixer'
 alias myip='ip --color=auto a'
-alias neo='unimatrix -c white -s 92 -u abcdefghijklmnopqrstuvwxyz1234567890!@#$%'
+#alias neo='unimatrix -c white -s 92 -u abcdefghijklmnopqrstuvwxyz1234567890!@#$%'
+alias neo='cmatrix'
 alias i3='nvim ~/.i3/config'
 alias nvimrc='nvim ~/.config/nvim/init.vim'
 alias bashrc='nvim ~/.bashrc'
@@ -173,69 +175,68 @@ alias zshrc='nvim ~/.zshrc'
 alias files='ranger'
 alias xfiles='sudo ranger'
 alias root='sudo -i'
-#alias yt='youtube-dl'
 alias yt='python3 ~/code/python/tools/youtube_dl.py'
 alias netstat='sudo iftop -i wlp3s0'
 alias mix='pulsemixer'
 
-# PACMAN
+###[ PACMAN ]###
 alias sync='sudo pacman --color auto -Syy'
 alias update='sudo pacman --color auto -Syyu'
 alias search='pacman --color auto -Ss'
-alias pacinfo='pacman -Si'
+alias ipkg='pacman -Si'
 alias install='sudo pacman --color auto -S'
 alias remove='sudo pacman --color auto -Rns'
-alias paclist='pacman --color auto -Q | less'
-alias pacsearch='pacman --color auto -Q | grep'
+alias lpkg='pacman --color auto -Q | less'
+alias spkg='pacman --color auto -Q | grep'
 alias autoclean='sudo pacman -Qdt'
 alias linuxtool='python3 /home/r3dux/code/python/linuxtool.py'
 
-# SSH
+###[ SSH ]###
 alias MBP='ssh 192.168.0.238'
 alias SB2='ssh 192.168.0.153'
 alias x220='ssh 192.168.0.253'
 alias mom='ssh janakind-chadwick@192.168.0.9'
+alias server='ssh -i ~/docs/keys/ubuntu_keypem.pem ubuntu@13.52.61.100'
 
-## DMENU ALIASES
-alias dmenu='dmenu -fn "mononoki Nerd Font -9" -h 30 -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"'
-alias dmenu_run='dmenu_run -fn "mononoki Nerd Font -9" -h 30 -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"'
+###[ DMENU ALIASES ]###
+alias dmenu='dmenu -fn "Hack Nerd Font -9" -h 30 -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"'
+alias dmenu_run='dmenu_run -fn "Hack Nerd Font -9" -h 30 -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"'
 
-# PYWAL
-(cat ~/.cache/wal/sequences &)
+###[ PYWAL ]###
+#(cat ~/.cache/wal/sequences &)
 # Alternative (blocks terminal for 0-3ms)
-cat ~/.cache/wal/sequences
+# cat ~/.cache/wal/sequences
 # To add support for TTYs this line can be optionally added.
-source ~/.cache/wal/colors-tty.sh
+#source ~/.cache/wal/colors-tty.sh
 
-## ADD TO PATH
+###[ ADD TO PATH ]###
 #export PATH="/home/r3dux/.cargo/bin:$PATH"
 #export PATH="/home/r3dux/scripts:$PATH"
 #export PATH="/home/r3dux/bin:$PATH"
 #export PATH="/home/r3dux/.emacs.d/bin:$PATH"
-#
 ## GO-lang PATH
 #export GOPATH=$HOME/code/go
 #export GOBIN=$HOME/code/go/bin
 
 
-# VI MODE
+###[ VI MODE ]###
 bindkey -v
 
-# FZF search
+###[ FZF SEARCH ]###
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
-#FFF
+###[ FFF ]###
 f() {
     fff "$@"
     cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
 }
 
-## TMUX
+###[ TMUX ]###
 #[[ $- != *i* ]] && return
 ## Otherwise start tmux
 #[[ -z "$TMUX" ]] && exec tmux
 
-# FORTUNE
-clear && python ~/code/python/tools/fortune.py
 
+###[ ZSH RUNTIME ]###
+#bsp-layout set tall -- --master-size 0.525
+clear && python ~/code/python/tools/fortune.py
