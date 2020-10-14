@@ -15,31 +15,39 @@
 
 #===[ UTILITIES ]===#
 
-
 # TERMINAL 
 super + Return
-    xst
-	#xst -e zsh -c tmux
-
+    st
+	#st -e zsh -c tmux
 super + a
     alacritty
+
 # SCRATCHPAD
-#super + shift + Return
 Menu
     ~/bin/scratchy.sh
-# LAUNCHERS
+
+# LAUNCHER
 super + d
     ~/bin/dmenu_pywal.sh
-	#dmenu_run -fn 'mononoki Nerd Font -11' -nb '#000000' -sf '#000000' -sb '#ffffff' -nf '#ffffff' -p 'Run: ' -h 30
 
-# NETWORK MANAGER DMENU
+# NETWORK
 super + shift + n
-     ~/bin/networkmanager_dmenu_pywal.sh
-     #networkmanager_dmenu  -fn 'mononoki Nerd Font-10' -nb '#000000' -sf '#000000' -sb '#ffffff' -nf '#ffffff'
+    st -n iwctl -e iwctl
+    #~/bin/networkmanager_dmenu_pywal.sh
+    #networkmanager_dmenu  -fn 'mononoki Nerd Font-10' -nb '#000000' -sf '#000000' -sb '#ffffff' -nf '#ffffff'
 
 # CLIPMENU
 super + x
     ~/bin/clipmenu_pywal.sh
+
+# BATT
+super + p
+    ~/bin/batt.sh
+
+# TOGGLE POLYBAR
+super + b
+    polybar-msg cmd {hide && bspc config top_padding 0, show && bspc config top_padding 20} 
+
 
 #==[ ROFI ]==#
 
@@ -60,7 +68,7 @@ super + shift + c
 #===[ BROWSERS ]===#
 
 super + s 
-    surf -z .90 https://web.tabliss.io/ 
+    surf -N -z 1.0 https://web.tabliss.io/ 
 super + i
     bspc desktop -f '^2' && qutebrowser
 super + f
@@ -71,9 +79,6 @@ super + c
 
 #==[ PROGRAM BINDINGS ]===#
 
-# SCREEN LOCK
-super + shift + e
-    slock
 
 # WALLY
 super + shift + b
@@ -85,17 +90,17 @@ super + y
 
 # EMAIL
 super + g
-    bspc desktop -f '^7' && xst -e mutt
+    bspc desktop -f '^7' && st -e mutt
 super + shift + g
     bspc desktop -f '^7' && surf gmail.com
 
 # PULSEMIXER
 super + shift + a
-    xst -n pulsemixer -e pulsemixer
+    st -n pulsemixer -e pulsemixer
 
 # YTOP
 super + shift + y
-    xst -n ytop -e ytop -f
+    st -n ytop -e ytop -f
 
 # APPLE MUSIC
 super + m
@@ -109,17 +114,13 @@ super + v
 super + e
     bspc desktop -f '^10' && emacs
 
-# NITROGEN
+# NETFLIX
 super + n
-    nitrogen
+    bspc desktop -f '^5' && chromium --new-window --app=https://netflix.com
 
 # SCREENSHOT
 Print
     ~/bin/screenshot.sh
-
-# PICOM
-super + shift + p
-    killall picom; picom & 
 
 # LOCK
 Scroll_Lock
@@ -177,8 +178,8 @@ super + shift + p
 	bspc node newes.marked.local -n newest.!automatic.local
 
 # SWAP CURRENT WITH BIGGEST
-#super + shift + s
-#	bspc node -s biggest
+super + shift + Return
+	bspc node -s biggest
 
 ####################################################################################
 #
@@ -211,8 +212,8 @@ super + {_,shift + }semicolon
 #	bspc desktop -f {prev,next}.local
 #
 ## FOCUS THE LAST NODE/DESKTOP
-#super + {grave,Tab}
-#	bspc {node,desktop} -f last
+alt + {grave,Tab}
+	bspc {node,desktop} -f last
 #
 ## FOCUS OLDER OR NEWER NODE IN THE FOCUS HISTORY
 #super + ctrl + {o,i}
@@ -299,9 +300,6 @@ XF86AudioLowerVolume
 XF86AudioMute
     pactl set-sink-mute 1 toggle
 
-# BATT
-super + b
-    ~/bin/batt.sh
 
 # BRIGHTNESS CONTROL (brightnessctl)
 
