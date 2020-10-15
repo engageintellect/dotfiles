@@ -41,12 +41,16 @@ super + x
     ~/bin/clipmenu_pywal.sh
 
 # BATT
-super + p
+super + b
     ~/bin/batt.sh
 
 # TOGGLE POLYBAR
-super + b
-    polybar-msg cmd {hide && bspc config top_padding 0, show && bspc config top_padding 20} 
+super + p
+    polybar-msg cmd {hide && bspc config top_padding 0, show && bspc config top_padding 20 && bspc config top_padding 20} 
+
+# RELOAD POLYBAR
+super + shift + p
+    killall polybar && polybar -r new && bspc config top_padding 20
 
 
 #==[ ROFI ]==#
@@ -175,7 +179,7 @@ super + ctrl + {m,x,y,z}
 
 # SEND NEW NODE TO NEWEST PRESELECT
 super + shift + p
-	bspc node newes.marked.local -n newest.!automatic.local
+	# bspc node newes.marked.local -n newest.!automatic.local
 
 # SWAP CURRENT WITH BIGGEST
 super + shift + Return
@@ -203,9 +207,9 @@ super + shift + {period,comma}
 #super + {p,b,comma,period}
 #	bspc node -f @{parent,brother,first,second}
 
-# FOCUS NEXT/PREVIOUS NODE IN CURRENT DESKTOP
-super + {_,shift + }semicolon
-	bspc node -f {next,prev}.local
+# # FOCUS NEXT/PREVIOUS NODE IN CURRENT DESKTOP
+# super + {_,shift + }semicolon
+# 	bspc node -f {next,prev}.local
 
 ## FOCUS NEXT/PREVIOUS DESKTOP IN CURRENT MONITOR
 #super + bracket{left,right}
