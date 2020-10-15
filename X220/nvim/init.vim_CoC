@@ -40,6 +40,9 @@ nmap <Leader>z :FZF<CR>
 nmap <Leader>t :NERDTreeToggle<CR>
 "nmap <Leader>t :Vexplore<CR>
 nmap <Leader>g :Goyo<CR>
+nmap <Leader>ad :CocDisable<CR>
+nmap <Leader>ae :CocEnable<CR>
+
 
 
 " PYWAL "
