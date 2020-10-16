@@ -24,25 +24,25 @@ super + a
 
 # SCRATCHPAD
 Menu
-    ~/bin/scratchy.sh
+    ~/bin/env/scratchy.sh
 
 # LAUNCHER
 super + d
-    ~/bin/dmenu_pywal.sh
+    ~/bin/env/dmenu_pywal.sh
 
 # NETWORK
 super + shift + n
     st -n iwctl -e iwctl
-    #~/bin/networkmanager_dmenu_pywal.sh
+    #~/bin/env/networkmanager_dmenu_pywal.sh
     #networkmanager_dmenu  -fn 'mononoki Nerd Font-10' -nb '#000000' -sf '#000000' -sb '#ffffff' -nf '#ffffff'
 
 # CLIPMENU
 super + x
-    ~/bin/clipmenu_pywal.sh
+    ~/bin/env/clipmenu_pywal.sh
 
 # BATT
 super + b
-    ~/bin/batt.sh
+    ~/bin/env/batt.sh
 
 # TOGGLE POLYBAR
 super + p
@@ -86,7 +86,7 @@ super + c
 
 # WALLY
 super + shift + b
-    ~/bin/wally.py
+    ~/bin/env/wally.py
 
 # YOUTUBE
 super + y
@@ -124,7 +124,7 @@ super + n
 
 # SCREENSHOT
 Print
-    ~/bin/screenshot.sh
+    ~/bin/env/screenshot.sh
 
 # LOCK
 Scroll_Lock
@@ -297,10 +297,8 @@ alt + l
 
 XF86AudioRaiseVolume
     pactl set-sink-volume 0 +2%
- 
 XF86AudioLowerVolume
     pactl set-sink-volume 0 -2%
-
 XF86AudioMute
     pactl set-sink-mute 1 toggle
 
@@ -309,6 +307,6 @@ XF86AudioMute
 
 super + shift + plus
     sudo brightnessctl set 1%+
-
 super + shift + minus
     sudo brightnessctl set 1%-
+

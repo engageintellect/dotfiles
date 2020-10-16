@@ -6,7 +6,7 @@
 #|_.__/|___/ .__/ \_/\_/ |_| |_| |_| |_|  \___|
 #          |_|
 #
-# Version: 2.0
+# Version: 2.5
 # Build: ThinkPad X220
 
 # SOURCE PYWAL COLORS 
@@ -19,7 +19,7 @@ xsetroot -cursor_name left_ptr
 
 #===[ AUTOSTART ]===#
 
-python /home/r3dux/bin/env.py
+python /home/r3dux/bin/env/env.py
 
 
 
@@ -107,6 +107,7 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a transmission-gtk state=floating rectangle=600x600+0+0 center=true
 bspc rule -a st-256color:pulsemixer state=floating rectangle=500x300+0+0 center=true
+bspc rule -a st-256color:iwctl state=floating rectangle=800x600+0+0 center=true
 bspc rule -a st-256color:ytop state=floating rectangle=900x600+0+0 center=true
 bspc rule -a st-256color:neofetch state=floating rectangle=900x600+0+0 center=true
 bspc rule -a st-256color:scratchy state=floating
