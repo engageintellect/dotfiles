@@ -203,22 +203,22 @@ super + {comma,period}
 super + shift + {period,comma}
 	bspc node @/ -R {90,270}
 
-## FOCUS NODE FOR GIVEN PATH JUMP
+# FOCUS NODE FOR GIVEN PATH JUMP
 #super + {p,b,comma,period}
 #	bspc node -f @{parent,brother,first,second}
 
-# # FOCUS NEXT/PREVIOUS NODE IN CURRENT DESKTOP
-# super + {_,shift + }semicolon
-# 	bspc node -f {next,prev}.local
+ # FOCUS NEXT/PREVIOUS NODE IN CURRENT DESKTOP
+super + {_,shift + }semicolon
+    bspc node -f next.local
 
-## FOCUS NEXT/PREVIOUS DESKTOP IN CURRENT MONITOR
+# FOCUS NEXT/PREVIOUS DESKTOP IN CURRENT MONITOR
 #super + bracket{left,right}
 #	bspc desktop -f {prev,next}.local
-#
+
 ## FOCUS THE LAST NODE/DESKTOP
 alt + {grave,Tab}
 	bspc {node,desktop} -f last
-#
+
 ## FOCUS OLDER OR NEWER NODE IN THE FOCUS HISTORY
 #super + ctrl + {o,i}
 #	bspc wm -h off; \
