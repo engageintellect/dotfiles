@@ -1,0 +1,254 @@
+#          _     _       _
+# _____  _| |__ | | ____| |  _ __ ___
+#/ __\ \/ / '_ \| |/ / _` | | '__/ __|
+#\__ \>  <| | | |   < (_| | | | | (__
+#|___/_/\_\_| |_|_|\_\__,_| |_|  \___|
+#
+# Build: ThinkPad X220
+# Version: 1.0
+
+
+###################
+#                 #
+# CUSTOM BINDINGS #
+#                 #
+###################
+
+# TERMINAL
+super + Return
+	st
+super + a
+    alacritty
+
+# SCRATCHPAD
+super + shift + Return
+    ~/bin/scratchy.sh
+
+# LAUNCHERS
+super + d
+	dmenu_run -fn 'mononoki Nerd Font -12' -nb '#000000' -sf '#000000' -sb '#ffffff' -nf '#ffffff' -p 'Run: ' -h 30
+
+# REDLOAD SXHKD CONFIG 
+super + shift + r
+	pkill -USR1 -x sxhkd
+
+# SCREEN LOCK
+super + shift + e
+    i3lock-fancy 
+    #blurlock 
+
+# NETWORK MANAGER
+super + shift + n
+    networkmanager_dmenu -fn 'mononoki Nerd Font -10' -nb '#000000' -sf '#000000' -sb '#ffffff' -nf '#ffffff' -w 600
+
+# WALLY
+super + shift + b
+    ~/bin/wally.py
+
+# BROWSERS
+super + s 
+    surf -z .90 https://web.tabliss.io/
+super + i
+    bspc desktop -f '^2' && qutebrowser
+super + f
+    firefox
+
+# YOUTUBE
+super + y
+    bspc desktop -f '^5' && qutebrowser youtube.com
+
+# EMAIL
+super + g
+    bspc desktop -f '^10' && st -e mutt
+super + shift + g
+    bspc desktop -f '^10' && surf gmail.com
+
+# PULSEMIXER
+super + shift + a
+    st -n pulsemixer -e pulsemixer
+
+# YTOP
+super + shift + y
+    st -n ytop -e ytop
+
+# SPOTIFY
+super + m
+    bspc desktop -f '^5' && spotify
+
+# PCMANFM
+super + e
+    pcmanfm
+
+# NITROGEN
+super + n
+    nitrogen
+
+# SCREENSHOT
+Print
+    scrot
+
+# LOCK
+Scroll_Lock
+    blurlock
+
+# RELOAD BSPWM
+super + ctrl + r
+    bspc wm -r
+
+# QUIT BSPWM
+super + ctrl + q
+    killall -q bspwm
+
+# CLOSE AND KILL
+super + {_,shift + }q
+	bspc node -{c,k}
+
+# TOGGLE MONOCLE LAYOUT
+super + shift + m
+	bspc desktop -l next
+
+# TOGGLE FULLSCREEN
+super + Tab
+    bspc node -t \~fullscreen
+
+# TOGGLE FLOATING
+super + space
+    bspc node -t \~floating
+
+# TOGGLE TILING
+super + shift + space
+    bspc node -t \~tiled
+
+# TOGGLE PSEDUO TILE
+alt + space
+    bspc node -t \~pseudo_tiled
+
+# LAYOUT SWITCH
+#super + {t,shift + t,s,f}
+#	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# SET NODE FLAGS
+super + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}
+
+# SEND NEW NODE TO NEWEST PRESELECT
+super + shift + p
+	bspc node newes.marked.local -n newest.!automatic.local
+
+# SWAP CURRENT WITH BIGGEST
+super + shift + s
+	bspc node -s biggest
+
+################
+#              #
+# FOCUS / SWAP #
+#              #
+################
+
+# MOVE WINDOWS
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# FOCUS NODE FOR GIVEN PATH JUMP
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
+
+# FOCUS NEXT/PREVIOUS NODE IN CURRENT DESKTOP
+super + {_,shift + }semicolon
+	bspc node -f {next,prev}.local
+
+# FOCUS NEXT/PREVIOUS DESKTOP IN CURRENT MONITOR
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# FOCUS THE LAST NODE/DESKTOP
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# FOCUS OLDER OR NEWER NODE IN THE FOCUS HISTORY
+super + ctrl + {o,i}
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
+
+# MOVE WORKSPACES
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+#############
+#           #
+# PRESELECT #
+#           #
+#############
+
+# PRESELECT DIRECTION
+super + alt {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# PRESELECT AMOUNT 
+super + alt {1-9}
+	bspc node -o 0.{1-9}
+
+# CANCEL PRESELECTION FOR NODE 
+super + alt + space
+	bspc node -p cancel
+
+# CANCEL PRESLECTION FOR DESKTOP 
+super + alt + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#################
+#               #
+# MOVE / RESIZE #
+#               #
+#################
+
+# EXPAND WINDOW OUTWARD 
+super + ctrl + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# CONTRACT WINDOW INWARD 
+super + ctrl + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# MOVE FLOATING WINDOW
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}t
+
+# CHANGE WINDOW GAP SIZE
+alt + k
+	bspc config window_gap {0,12,16,32,46,64,84}
+alt + j
+	bspc config window_gap {0,2,4,6,8,10,12,14,16,18,20}
+
+# EXPAND/CONTRACT FLOATING WINDOWS ON ALL SIDES
+alt + h
+	bspc node -z left -20 0; \
+	bspc node -z bottom 0 10; \
+	bspc node -z top 0 -10; \
+	bspc node -z right 20 0
+alt + l
+	bspc node -z left 20 0; \
+	bspc node -z bottom 0 -10; \
+	bspc node -z top 0 10; \
+	bspc node -z right -20 0
+
+#####################
+#                   #
+# HARDWARE CONTROLS #
+#                   #
+#####################
+
+# KEYBOARD VOLUME CONTROL
+
+XF86AudioRaiseVolume
+    pactl set-sink-volume 0 +2%
+ 
+XF86AudioLowerVolume
+    pactl set-sink-volume 0 -2%
+
+XF86AudioMute
+    pactl set-sink-mute 1 toggle
+
+
+

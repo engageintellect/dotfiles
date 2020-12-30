@@ -5,7 +5,9 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Hack Nerd Font:pixelsize=10:antialias=true:autohint=true";
+static char *font = "Hack Nerd Font:pixelsize=14:antialias=true:autohint=true";
+//static char *font = "Liberation Mono:pixelsize=14:antialias=true:autohint=true";
+//static char *font = "Monospace:pixelsize=14:antialias=true:autohint=true";
 static int borderpx = 30;
 
 /*
@@ -60,7 +62,7 @@ static double maxlatency = 33;
  * blinking timeout (set to 0 to disable blinking) for the terminal blinking
  * attribute.
  */
-static unsigned int blinktimeout = 333;
+static unsigned int blinktimeout = 432;
 
 /*
  * thickness of underline and bar cursors
@@ -112,7 +114,7 @@ float alpha = 1.0;
  * 7: Blinking st cursor
  * 8: Steady st cursor
  */
-static unsigned int cursorstyle = 3;
+static unsigned int cursorstyle = 0;
 static Rune stcursor = 0x2603; /* snowman (U+2603) */
 
 /*
