@@ -6,57 +6,56 @@ module.exports = {
   config: {
     // choose either `'stable'` for receiving highly polished,
     // or `'canary'` for less polished but more frequent updates
-    updateChannel: 'stable',
+    updateChannel: "stable",
 
     fontSize: 18,
-    fontFamily: '"Fira Code", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
-    fontWeight: 'normal',
-    fontWeightBold: 'bold',
-    cursorColor: '#fafafa',
-    cursorAccentColor: '#171717',
-    cursorShape: 'BLOCK',
-    cursorBlink: false,
-    foregroundColor: '#fafafa',
-    backgroundColor: '#171717',
-    selectionColor: 'rgba(248,28,229,0.3)',
-    borderColor: '#fafafa',
-    css: '',
-    termCSS: '',
-    showHamburgerMenu: '',
-    showWindowControls: '',
-    padding: '20px 20px',
-
+    fontFamily:
+      '"Fira Code", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontWeight: "normal",
+    fontWeightBold: "bold",
+    cursorColor: "#fff",
+    cursorAccentColor: "#000",
+    cursorShape: "BLOCK",
+    cursorBlink: true,
+    foregroundColor: "#fafafa",
+    backgroundColor: "#171717",
+    selectionColor: "rgba(248,28,229,0.3)",
+    borderColor: "#fafafa",
+    css: "",
+    termCSS: "",
+    showHamburgerMenu: true,
+    showWindowControls: true,
+    padding: "20px 20px",
 
     //-------------------------------------------
     // TAILWIND COLORS
     //-------------------------------------------
 
     colors: {
-      black: '#171717',
-      red: '#C51E14',
-	    green: '#16a34a',
-      yellow: '#eab308',
-      blue: '#2563eb',
-      magenta: '#c026d3',
-      cyan: '#0891b2',
-      white: '#d4d4d4',
-      lightBlack: '#525252',
-      lightRed: '#FD6F6B',
-      lightGreen: '#22c55e',
-      lightYellow: '#eab308',
-      lightBlue: '#3b82f6',
-      lightMagenta: '#d946ef',
-      lightCyan: '#06b6d4',
-      lightWhite: '#fafafa',
+      black: "#171717",
+      red: "#dc2626",
+      green: "#16a34a",
+      yellow: "#eab308",
+      blue: "#2563eb",
+      magenta: "#c026d3",
+      cyan: "#0891b2",
+      white: "#d4d4d4",
+      lightBlack: "#525252",
+      lightRed: "#ef4444",
+      lightGreen: "#22c55e",
+      lightYellow: "#eab308",
+      lightBlue: "#3b82f6",
+      lightMagenta: "#d946ef",
+      lightCyan: "#06b6d4",
+      lightWhite: "#fafafa",
     },
-
-
 
     //-------------------------------------------
     // TAILWIND COLORS
     //-------------------------------------------
 
-    shell: 'C:\\Users\\r3dux\\AppData\\Local\\Microsoft\\WindowsApps\\ubuntu.exe',
+    shell:
+      "C:\\Users\\r3dux\\AppData\\Local\\Microsoft\\WindowsApps\\ubuntu.exe",
 
     // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
     // by default `['--login']` will be used
@@ -66,7 +65,7 @@ module.exports = {
     env: {},
 
     // set to `false` for no bell
-    bell: 'SOUND',
+    bell: "SOUND",
 
     // if `true` (without backticks and without quotes), selected text will automatically be copied to the clipboard
     copyOnSelect: true,
@@ -83,7 +82,6 @@ module.exports = {
 
     // for advanced config flags please refer to https://hyper.is/#cfg
   },
-
 
   //-------------------------------------------
   // PLUGINS
