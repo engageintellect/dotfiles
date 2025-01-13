@@ -1,0 +1,44 @@
+live_config_reload = true
+
+[window]
+decorations = "buttonless"
+dynamic_padding = true
+opacity = 0.98
+
+[window.padding]
+x = 20
+y = 20
+
+[font]
+size = 16.0
+normal = { family = "UbuntuMono Nerd Font", style = "Regular" }
+
+# Colors
+[colors]
+# Default colors
+[colors.primary]
+background = '#171717'  # neutral-900
+foreground = '0xF3F4F6'  # neutral-100
+
+# Normal colors
+[colors.normal]
+black   = '0x111827'  # neutral-900
+red     = '0xEF4444'  # red-500
+green   = '0x10B981'  # green-500
+yellow  = '0xF59E0B'  # yellow-500
+blue    = '0x3B82F6'  # blue-500
+magenta = '0xEC4899'  # pink-500
+cyan    = '0x06B6D4'  # cyan-500
+white   = '0xF3F4F6'  # neutral-100
+
+# Bright colors
+[colors.bright]
+black   = '0x374151'  # neutral-700
+red     = '0xF87171'  # red-400
+green   = '0x6EE7B7'  # green-400
+yellow  = '0xFBBF24'  # yellow-400
+blue    = '0x60A5FA'  # blue-400
+magenta = '0xF472B6'  # pink-400
+cyan    = '0x22D3EE'  # cyan-400
+white   = '0xD1D5DB'  # neutral-300
+
